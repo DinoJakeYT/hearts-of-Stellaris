@@ -1,0 +1,120 @@
+add_namespace = hos_space
+
+# Flavour for each space program milestone; the decisions themselves apply the effects.
+
+country_event = {
+	id = hos_space.1
+	title = hos_space.1.t
+	desc = hos_space.1.d
+	picture = GFX_report_event_hos_satellite
+	is_triggered_only = yes
+	option = { name = hos_space.1.a }
+}
+
+country_event = {
+	id = hos_space.2
+	title = hos_space.2.t
+	desc = hos_space.2.d
+	picture = GFX_report_event_hos_spaceport
+	is_triggered_only = yes
+	option = { name = hos_space.2.a }
+}
+
+country_event = {
+	id = hos_space.3
+	title = hos_space.3.t
+	desc = hos_space.3.d
+	picture = GFX_report_event_hos_moon
+	is_triggered_only = yes
+	option = { name = hos_space.3.a }
+}
+
+country_event = {
+	id = hos_space.4
+	title = hos_space.4.t
+	desc = hos_space.4.d
+	picture = GFX_report_event_hos_jump_drive
+	is_triggered_only = yes
+	option = { name = hos_space.4.a }
+}
+
+country_event = {
+	id = hos_space.10
+	title = hos_space.10.t
+	desc = hos_space.10.d
+	picture = GFX_report_event_hos_dyson_sphere
+	is_triggered_only = yes
+	option = { name = hos_space.10.a }
+}
+
+country_event = {
+	id = hos_space.11
+	title = hos_space.11.t
+	desc = hos_space.11.d
+	picture = GFX_report_event_hos_ring_world
+	is_triggered_only = yes
+	option = { name = hos_space.11.a }
+}
+
+country_event = {
+	id = hos_space.12
+	title = hos_space.12.t
+	desc = hos_space.12.d
+	picture = GFX_report_event_hos_science_nexus
+	is_triggered_only = yes
+	option = { name = hos_space.12.a }
+}
+
+country_event = {
+	id = hos_space.13
+	title = hos_space.13.t
+	desc = hos_space.13.d
+	picture = GFX_report_event_hos_sentry_array
+	is_triggered_only = yes
+	option = { name = hos_space.13.a }
+}
+
+country_event = {
+	id = hos_space.14
+	title = hos_space.14.t
+	desc = hos_space.14.d
+	picture = GFX_report_event_hos_matter_decompressor
+	is_triggered_only = yes
+	option = { name = hos_space.14.a }
+}
+
+country_event = {
+	id = hos_space.15
+	title = hos_space.15.t
+	desc = hos_space.15.d
+	picture = GFX_report_event_hos_art_installation
+	is_triggered_only = yes
+	option = { name = hos_space.15.a }
+}
+
+country_event = {
+	id = hos_space.16
+	title = hos_space.16.t
+	desc = hos_space.16.d
+	picture = GFX_report_event_hos_coordination_center
+	is_triggered_only = yes
+	option = { name = hos_space.16.a }
+}
+
+country_event = {
+	id = hos_space.17
+	title = hos_space.17.t
+	desc = hos_space.17.d
+	picture = GFX_report_event_hos_mega_shipyard
+	is_triggered_only = yes
+	option = { name = hos_space.17.a }
+}
+
+country_event = {
+	id = hos_space.18
+	title = hos_space.18.t
+	desc = hos_space.18.d
+	picture = GFX_report_event_hos_gateway
+	is_triggered_only = yes
+	option = { name = hos_space.18.a }
+}

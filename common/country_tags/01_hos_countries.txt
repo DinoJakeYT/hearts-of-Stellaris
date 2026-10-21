@@ -1,0 +1,4 @@
+# The Stellaris endgame crises. None of them exist at game start; hos_spawn_* gives them states.
+PSC = "countries/HOS_Prethoryn Scourge.txt"
+UNB = "countries/HOS_Unbidden.txt"
+CTG = "countries/HOS_Contingency.txt"

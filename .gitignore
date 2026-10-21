@@ -1,0 +1,5 @@
+# Converted from the user's own Stellaris install by tools/import_stellaris_art.py. Never commit these.
+gfx/
+music/stellaris/
+localisation/english/hos_music_l_english.yml
+__pycache__/

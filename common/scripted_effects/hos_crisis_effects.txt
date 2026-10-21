@@ -1,0 +1,447 @@
+### The endgame crisis: a warning, the arrival 75+ days later, monthly waves, and the end.
+# Global flags: hos_crisis_enabled (startup), hos_crisis_warning, hos_crisis_is_<crisis>,
+# hos_crisis_arrived, hos_crisis_spawned, hos_crisis_over.
+
+# Run for every country by on_monthly; the first one through does the work.
+hos_monthly_crisis_check = {
+	if = {
+		limit = {
+			has_global_flag = hos_crisis_enabled
+			NOT = { has_global_flag = hos_crisis_warning }
+			hos_crisis_date_reached = yes
+		}
+		hos_crisis_warning = yes
+	}
+	else_if = {
+		limit = {
+			has_global_flag = { flag = hos_crisis_warning days > 75 }
+			NOT = { has_global_flag = hos_crisis_arrived }
+		}
+		hos_crisis_arrival = yes
+	}
+	else_if = {
+		limit = {
+			has_global_flag = hos_crisis_spawned
+			NOT = { has_global_flag = hos_crisis_over }
+			NOT = { any_country = { hos_is_crisis_country = yes } }
+		}
+		hos_crisis_victory = yes
+	}
+}
+
+hos_crisis_warning = {
+	set_global_flag = hos_crisis_warning
+	if = {
+		limit = { has_game_rule = { rule = hos_crisis_type option = PRETHORYN } }
+		set_global_flag = hos_crisis_is_prethoryn
+	}
+	else_if = {
+		limit = { has_game_rule = { rule = hos_crisis_type option = UNBIDDEN } }
+		set_global_flag = hos_crisis_is_unbidden
+	}
+	else_if = {
+		limit = { has_game_rule = { rule = hos_crisis_type option = CONTINGENCY } }
+		set_global_flag = hos_crisis_is_contingency
+	}
+	else = {
+		# As in Stellaris: jump drives draw the Unbidden, thinking machines wake the Contingency.
+		random_list = {
+			10 = {
+				set_global_flag = hos_crisis_is_prethoryn
+			}
+			10 = {
+				modifier = { factor = 3 any_country = { has_country_flag = hos_jump_drive } }
+				set_global_flag = hos_crisis_is_unbidden
+			}
+			10 = {
+				modifier = {
+					factor = 3
+					any_country = {
+						is_major = yes
+						has_idea = hos_ethic_machine
+					}
+				}
+				set_global_flag = hos_crisis_is_contingency
+			}
+		}
+	}
+	if = {
+		limit = { has_global_flag = hos_crisis_is_prethoryn }
+		news_event = { id = hos_crisis.1 hours = 6 }
+	}
+	else_if = {
+		limit = { has_global_flag = hos_crisis_is_unbidden }
+		news_event = { id = hos_crisis.2 hours = 6 }
+	}
+	else = {
+		news_event = { id = hos_crisis.3 hours = 6 }
+	}
+}
+
+hos_crisis_arrival = {
+	set_global_flag = hos_crisis_arrived
+	if = {
+		limit = { has_global_flag = hos_crisis_is_prethoryn }
+		hos_spawn_prethoryn = yes
+	}
+	else_if = {
+		limit = { has_global_flag = hos_crisis_is_unbidden }
+		hos_spawn_unbidden = yes
+	}
+	else = {
+		hos_spawn_contingency = yes
+	}
+}
+
+### Arrivals
+
+# Three swarms land on coasts around the world.
+hos_spawn_prethoryn = {
+	for_loop_effect = {
+		end = 3
+		random_state = {
+			limit = {
+				hos_crisis_spawn_state = yes
+				is_coastal = yes
+			}
+			set_state_flag = hos_crisis_state
+			PSC = { transfer_state = PREV }
+		}
+	}
+	if = {
+		limit = { PSC = { exists = yes } }
+		set_global_flag = hos_crisis_spawned
+		PSC = {
+			hos_crisis_setup = yes
+			add_ideas = hos_crisis_prethoryn
+			promote_character = PSC_prethoryn_queen
+			division_template = {
+				name = "Prethoryn Swarm Brood"
+				is_locked = yes
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }
+					infantry = { x = 2 y = 0 }
+					infantry = { x = 2 y = 1 }
+					infantry = { x = 2 y = 2 }
+				}
+				support = {
+					engineer = { x = 0 y = 0 }
+					recon = { x = 0 y = 1 }
+				}
+			}
+			every_owned_state = {
+				set_temp_variable = { hos_spawn_count = global.hos_crisis_spawn }
+				hos_spawn_prethoryn_divisions = yes
+			}
+			country_event = { id = hos_crisis.20 }
+			news_event = { id = hos_crisis.11 hours = 6 }
+		}
+	}
+}
+
+# A portal tears open inside a great power; the Unbidden pour out of it and two neighbouring states.
+hos_spawn_unbidden = {
+	random_state = {
+		limit = {
+			hos_crisis_spawn_state = yes
+			owner = { is_major = yes }
+		}
+		set_state_flag = hos_crisis_state
+		set_state_flag = hos_unbidden_portal
+		UNB = { transfer_state = PREV }
+		for_loop_effect = {
+			end = 2
+			random_neighbor_state = {
+				limit = { hos_crisis_spawn_state = yes }
+				set_state_flag = hos_crisis_state
+				UNB = { transfer_state = PREV }
+			}
+		}
+	}
+	if = {
+		limit = { UNB = { exists = yes } }
+		set_global_flag = hos_crisis_spawned
+		UNB = {
+			hos_crisis_setup = yes
+			add_ideas = hos_crisis_unbidden
+			promote_character = UNB_unbidden_warlock
+			division_template = {
+				name = "Unbidden Thrall Legion"
+				is_locked = yes
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }
+					artillery_brigade = { x = 2 y = 0 }
+					artillery_brigade = { x = 2 y = 1 }
+				}
+				support = {
+					engineer = { x = 0 y = 0 }
+					recon = { x = 0 y = 1 }
+				}
+			}
+			every_owned_state = {
+				set_temp_variable = { hos_spawn_count = global.hos_crisis_spawn }
+				if = {
+					limit = { has_state_flag = hos_unbidden_portal }
+					multiply_temp_variable = { hos_spawn_count = 2 }
+				}
+				hos_spawn_unbidden_divisions = yes
+			}
+			country_event = { id = hos_crisis.20 }
+			news_event = { id = hos_crisis.12 hours = 6 }
+		}
+	}
+}
+
+# Sterilization hubs wake up inside four great powers, and every machine nation's robots defect.
+hos_spawn_contingency = {
+	for_loop_effect = {
+		end = 4
+		random_state = {
+			limit = {
+				hos_crisis_spawn_state = yes
+				owner = {
+					is_major = yes
+					NOT = { has_country_flag = hos_lost_hub }
+				}
+			}
+			set_state_flag = hos_crisis_state
+			set_state_flag = hos_sterilization_hub
+			add_dynamic_modifier = { modifier = hos_sterilization_hub }
+			OWNER = { set_country_flag = hos_lost_hub }
+			CTG = { transfer_state = PREV }
+		}
+	}
+	if = {
+		limit = { CTG = { exists = yes } }
+		set_global_flag = hos_crisis_spawned
+		CTG = {
+			hos_crisis_setup = yes
+			add_ideas = hos_crisis_contingency
+			promote_character = CTG_contingency_core
+			division_template = {
+				name = "Contingency Sterilization Unit"
+				is_locked = yes
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					artillery_brigade = { x = 2 y = 0 }
+					artillery_brigade = { x = 2 y = 1 }
+					artillery_brigade = { x = 3 y = 0 }
+					artillery_brigade = { x = 3 y = 1 }
+				}
+				support = {
+					engineer = { x = 0 y = 0 }
+					recon = { x = 0 y = 1 }
+				}
+			}
+			every_owned_state = {
+				set_temp_variable = { hos_spawn_count = global.hos_crisis_spawn }
+				hos_spawn_contingency_divisions = yes
+			}
+			country_event = { id = hos_crisis.20 }
+			news_event = { id = hos_crisis.13 hours = 6 }
+		}
+		every_country = {
+			limit = {
+				has_idea = hos_ethic_machine
+				NOT = { hos_is_crisis_country = yes }
+			}
+			country_event = { id = hos_crisis.21 days = 2 }
+		}
+	}
+}
+
+# Scope: the crisis country.
+hos_crisis_setup = {
+	set_technology = {
+		infantry_weapons = 1
+		infantry_weapons1 = 1
+		infantry_weapons2 = 1
+		tech_support = 1
+		tech_engineers = 1
+		tech_recon = 1
+		gw_artillery = 1
+		interwar_artillery = 1
+	}
+	set_politics = {
+		ruling_party = neutrality
+		elections_allowed = no
+	}
+	set_popularities = {
+		democratic = 0
+		fascism = 0
+		communism = 0
+		neutrality = 100
+	}
+	set_rule = {
+		can_create_factions = no
+		can_join_factions = no
+		can_send_volunteers = no
+		can_puppet = no
+	}
+	add_dynamic_modifier = { modifier = hos_crisis_strength }
+	add_manpower = 1000000
+	add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 100000 }
+	add_equipment_to_stockpile = { type = support_equipment_1 amount = 10000 }
+	add_equipment_to_stockpile = { type = artillery_equipment_1 amount = 20000 }
+}
+
+### Divisions. State scope; spawns hos_spawn_count divisions there.
+
+hos_spawn_prethoryn_divisions = {
+	for_loop_effect = {
+		end = hos_spawn_count
+		create_unit = {
+			division = "name = \"Swarm Brood\" division_template = \"Prethoryn Swarm Brood\" start_experience_factor = 0.5 start_equipment_factor = 1"
+			owner = PSC
+		}
+	}
+}
+
+hos_spawn_unbidden_divisions = {
+	for_loop_effect = {
+		end = hos_spawn_count
+		create_unit = {
+			division = "name = \"Thrall Legion\" division_template = \"Unbidden Thrall Legion\" start_experience_factor = 0.75 start_equipment_factor = 1"
+			owner = UNB
+		}
+	}
+}
+
+hos_spawn_contingency_divisions = {
+	for_loop_effect = {
+		end = hos_spawn_count
+		create_unit = {
+			division = "name = \"Sterilization Unit\" division_template = \"Contingency Sterilization Unit\" start_experience_factor = 0.75 start_equipment_factor = 1"
+			owner = CTG
+		}
+	}
+}
+
+### Monthly, for the crisis country itself (on_monthly_PSC/UNB/CTG)
+
+hos_crisis_monthly = {
+	add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 5000 }
+	add_equipment_to_stockpile = { type = support_equipment_1 amount = 500 }
+	add_equipment_to_stockpile = { type = artillery_equipment_1 amount = 1000 }
+
+	if = {
+		limit = { tag = UNB }
+		if = {
+			limit = {
+				NOT = { has_idea = hos_portal_collapsed }
+				NOT = {
+					any_state = {
+						has_state_flag = hos_unbidden_portal
+						is_controlled_by = ROOT
+					}
+				}
+			}
+			add_ideas = hos_portal_collapsed
+			news_event = { id = hos_crisis.30 hours = 6 }
+		}
+	}
+	if = {
+		limit = { tag = CTG }
+		if = {
+			limit = {
+				NOT = { has_idea = hos_hubs_destroyed }
+				NOT = {
+					any_state = {
+						has_state_flag = hos_sterilization_hub
+						is_controlled_by = ROOT
+					}
+				}
+			}
+			add_ideas = hos_hubs_destroyed
+			news_event = { id = hos_crisis.31 hours = 6 }
+		}
+	}
+
+	if = {
+		limit = {
+			has_army_size = { size < 400 }
+			NOT = { has_idea = hos_portal_collapsed }
+			NOT = { has_idea = hos_hubs_destroyed }
+		}
+		set_temp_variable = { hos_spawn_count = global.hos_crisis_wave }
+		if = {
+			limit = { tag = PSC }
+			# The Swarm grows with every world it eats.
+			if = {
+				limit = { num_of_controlled_states > 10 }
+				add_to_temp_variable = { hos_spawn_count = 2 }
+			}
+			if = {
+				limit = { num_of_controlled_states > 25 }
+				add_to_temp_variable = { hos_spawn_count = 3 }
+			}
+			random_controlled_state = {
+				hos_spawn_prethoryn_divisions = yes
+			}
+		}
+		else_if = {
+			limit = { tag = UNB }
+			random_controlled_state = {
+				limit = { has_state_flag = hos_unbidden_portal }
+				hos_spawn_unbidden_divisions = yes
+			}
+		}
+		else_if = {
+			limit = { tag = CTG }
+			random_controlled_state = {
+				limit = { has_state_flag = hos_sterilization_hub }
+				hos_spawn_contingency_divisions = yes
+			}
+		}
+	}
+}
+
+### The end
+
+# on_capitulation, ROOT = the crisis. Hands its states back to whoever has cores or holds them, so it
+# disappears instead of sitting through dozens of peace conferences.
+hos_crisis_collapse = {
+	every_country = {
+		limit = { NOT = { hos_is_crisis_country = yes } }
+		every_state = {
+			limit = {
+				is_owned_by = ROOT
+				is_core_of = PREV
+			}
+			PREV = { transfer_state = PREV }
+		}
+	}
+	every_owned_state = {
+		limit = { NOT = { is_controlled_by = ROOT } }
+		CONTROLLER = { transfer_state = PREV }
+	}
+	if = {
+		limit = { exists = yes }
+		random_country = {
+			limit = { has_war_with = ROOT }
+			annex_country = { target = ROOT transfer_troops = no }
+		}
+	}
+}
+
+hos_crisis_victory = {
+	set_global_flag = hos_crisis_over
+	news_event = { id = hos_crisis.40 hours = 6 }
+	every_country = {
+		limit = { has_country_flag = hos_fought_crisis }
+		add_timed_idea = { idea = hos_crisis_beaters days = 730 }
+	}
+}

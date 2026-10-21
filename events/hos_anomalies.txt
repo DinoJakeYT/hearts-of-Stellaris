@@ -1,0 +1,283 @@
+add_namespace = hos_anomaly
+
+# Science ship anomalies, picked by hos_survey_anomaly. Each sets its flag so it turns up once.
+
+# A herd of space whales
+country_event = {
+	id = hos_anomaly.1
+	title = hos_anomaly.1.t
+	desc = hos_anomaly.1.d
+	picture = GFX_report_event_hos_anom_whale
+	is_triggered_only = yes
+	immediate = { hidden_effect = { set_country_flag = hos_anom_whale } }
+
+	option = {
+		name = hos_anomaly.1.a
+		add_ideas = hos_anom_gary
+	}
+	option = {
+		name = hos_anomaly.1.b
+		ai_chance = { factor = 0.5 }
+		add_tech_bonus = { name = hos_anomaly.1.t bonus = 1 uses = 1 category = industry }
+		add_stability = -0.03
+	}
+}
+
+# A Precursor cache
+country_event = {
+	id = hos_anomaly.2
+	title = hos_anomaly.2.t
+	desc = hos_anomaly.2.d
+	picture = GFX_report_event_hos_anom_cache
+	is_triggered_only = yes
+	immediate = { hidden_effect = { set_country_flag = hos_anom_cache } }
+
+	option = {
+		name = hos_anomaly.2.a
+		add_tech_bonus = { name = hos_anomaly.2.t bonus = 1 uses = 1 category = electronics }
+		add_tech_bonus = { name = hos_anomaly.2.t bonus = 1 uses = 1 category = industry }
+	}
+	option = {
+		name = hos_anomaly.2.b
+		ai_chance = { factor = 0.2 }
+		add_political_power = 50
+	}
+}
+
+# The asteroid that is definitely, scientifically, a person
+country_event = {
+	id = hos_anomaly.3
+	title = hos_anomaly.3.t
+	desc = hos_anomaly.3.d
+	picture = GFX_report_event_hos_anom_rock
+	is_triggered_only = yes
+	immediate = { hidden_effect = { set_country_flag = hos_anom_rock } }
+
+	option = {
+		name = hos_anomaly.3.a
+		add_ideas = hos_anom_rock_pal
+	}
+	option = {
+		name = hos_anomaly.3.b
+		ai_chance = { factor = 0.5 }
+		capital_scope = {
+			add_resource = { type = steel amount = 8 }
+		}
+	}
+}
+
+# A towel
+country_event = {
+	id = hos_anomaly.4
+	title = hos_anomaly.4.t
+	desc = hos_anomaly.4.d
+	picture = GFX_report_event_hos_anom_towel
+	is_triggered_only = yes
+	immediate = { hidden_effect = { set_country_flag = hos_anom_towel } }
+
+	option = {
+		name = hos_anomaly.4.a
+		add_ideas = hos_anom_dont_panic
+	}
+}
+
+# Grey goo
+country_event = {
+	id = hos_anomaly.5
+	title = hos_anomaly.5.t
+	desc = hos_anomaly.5.d
+	picture = GFX_report_event_hos_anom_goo
+	is_triggered_only = yes
+	immediate = { hidden_effect = { set_country_flag = hos_anom_goo } }
+
+	option = {
+		name = hos_anomaly.5.a
+		add_political_power = -30
+	}
+	option = {
+		name = hos_anomaly.5.b
+		ai_chance = { factor = 0.5 }
+		custom_effect_tooltip = hos_anomaly.5.b.tt
+		hidden_effect = {
+			random_list = {
+				50 = {
+					add_tech_bonus = { name = hos_anomaly.5.t bonus = 2 uses = 1 category = industry }
+					country_event = { id = hos_anomaly.51 }
+				}
+				50 = {
+					capital_scope = {
+						damage_building = { type = industrial_complex damage = 2 }
+					}
+					country_event = { id = hos_anomaly.52 }
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = hos_anomaly.51
+	title = hos_anomaly.51.t
+	desc = hos_anomaly.51.d
+	picture = GFX_report_event_hos_anom_goo
+	is_triggered_only = yes
+	option = { name = hos_anomaly.51.a }
+}
+
+country_event = {
+	id = hos_anomaly.52
+	title = hos_anomaly.52.t
+	desc = hos_anomaly.52.d
+	picture = GFX_report_event_hos_anom_goo
+	is_triggered_only = yes
+	option = { name = hos_anomaly.52.a }
+}
+
+# A friendly space amoeba
+country_event = {
+	id = hos_anomaly.6
+	title = hos_anomaly.6.t
+	desc = hos_anomaly.6.d
+	picture = GFX_report_event_hos_anom_amoeba
+	is_triggered_only = yes
+	immediate = { hidden_effect = { set_country_flag = hos_anom_amoeba } }
+
+	option = {
+		name = hos_anomaly.6.a
+		add_ideas = hos_anom_amoeba_cavalry
+	}
+	option = {
+		name = hos_anomaly.6.b
+		ai_chance = { factor = 0.2 }
+		add_stability = 0.02
+	}
+}
+
+# A derelict warship
+country_event = {
+	id = hos_anomaly.7
+	title = hos_anomaly.7.t
+	desc = hos_anomaly.7.d
+	picture = GFX_report_event_hos_anom_derelict
+	is_triggered_only = yes
+	immediate = { hidden_effect = { set_country_flag = hos_anom_derelict } }
+
+	option = {
+		name = hos_anomaly.7.a
+		army_experience = 25
+		air_experience = 25
+		navy_experience = 25
+	}
+	option = {
+		name = hos_anomaly.7.b
+		ai_chance = { factor = 0.5 }
+		add_tech_bonus = { name = hos_anomaly.7.t bonus = 1 uses = 2 category = naval_equipment }
+	}
+}
+
+# An alien temple that whispers
+country_event = {
+	id = hos_anomaly.8
+	title = hos_anomaly.8.t
+	desc = hos_anomaly.8.d
+	picture = GFX_report_event_hos_anom_temple
+	is_triggered_only = yes
+	immediate = { hidden_effect = { set_country_flag = hos_anom_temple } }
+
+	option = {
+		name = hos_anomaly.8.a
+		add_ideas = hos_anom_shroud_whispers
+	}
+	option = {
+		name = hos_anomaly.8.b
+		ai_chance = { factor = 0.5 }
+		add_stability = 0.03
+	}
+}
+
+# The Horizon Signal
+country_event = {
+	id = hos_anomaly.9
+	title = hos_anomaly.9.t
+	desc = hos_anomaly.9.d
+	picture = GFX_report_event_hos_anom_signal
+	is_triggered_only = yes
+	immediate = { hidden_effect = { set_country_flag = hos_anom_signal } }
+
+	option = {
+		name = hos_anomaly.9.a
+		add_ideas = hos_anom_worm_touched
+	}
+	option = {
+		name = hos_anomaly.9.b
+		ai_chance = { factor = 0.5 }
+	}
+}
+
+# An Ether Drake wakes up
+country_event = {
+	id = hos_anomaly.10
+	title = hos_anomaly.10.t
+	desc = hos_anomaly.10.d
+	picture = GFX_report_event_hos_anom_dragon
+	is_triggered_only = yes
+	immediate = { hidden_effect = { set_country_flag = hos_anom_dragon } }
+
+	option = {
+		name = hos_anomaly.10.a
+		custom_effect_tooltip = hos_anomaly.10.a.tt
+		hidden_effect = {
+			random_list = {
+				50 = {
+					add_ideas = hos_anom_dragon_slayers
+					air_experience = 50
+					country_event = { id = hos_anomaly.101 }
+				}
+				50 = {
+					add_war_support = -0.05
+					capital_scope = {
+						damage_building = { type = air_base damage = 3 }
+					}
+					country_event = { id = hos_anomaly.102 }
+				}
+			}
+		}
+	}
+	option = {
+		name = hos_anomaly.10.b
+		ai_chance = { factor = 0.5 }
+		add_political_power = -25
+	}
+}
+
+country_event = {
+	id = hos_anomaly.101
+	title = hos_anomaly.101.t
+	desc = hos_anomaly.101.d
+	picture = GFX_report_event_hos_anom_dragon
+	is_triggered_only = yes
+	option = { name = hos_anomaly.101.a }
+}
+
+country_event = {
+	id = hos_anomaly.102
+	title = hos_anomaly.102.t
+	desc = hos_anomaly.102.d
+	picture = GFX_report_event_hos_anom_dragon
+	is_triggered_only = yes
+	option = { name = hos_anomaly.102.a }
+}
+
+# Nothing of interest. Allegedly.
+country_event = {
+	id = hos_anomaly.99
+	title = hos_anomaly.99.t
+	desc = hos_anomaly.99.d
+	picture = GFX_report_event_hos_anom_nothing
+	is_triggered_only = yes
+
+	option = {
+		name = hos_anomaly.99.a
+		add_political_power = 10
+	}
+}

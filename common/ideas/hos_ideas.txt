@@ -1,0 +1,470 @@
+ideas = {
+	country = {
+
+		### Ethics (hos_ethics events at game start, hos_assign_ai_ethic for the AI)
+
+		hos_ethic_militarist = {
+			picture = hos_ethic_militarist
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				army_attack_factor = 0.05
+				war_support_factor = 0.1
+				justify_war_goal_time = -0.15
+				stability_factor = -0.03
+			}
+		}
+
+		hos_ethic_pacifist = {
+			picture = hos_ethic_pacifist
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.1
+				political_power_factor = 0.1
+				army_core_defence_factor = 0.1
+				justify_war_goal_time = 0.25
+				war_support_factor = -0.1
+			}
+		}
+
+		hos_ethic_materialist = {
+			picture = hos_ethic_materialist
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				research_speed_factor = 0.05
+				production_factory_max_efficiency_factor = 0.05
+				stability_factor = -0.05
+			}
+		}
+
+		hos_ethic_spiritualist = {
+			picture = hos_ethic_spiritualist
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.1
+				political_power_gain = 0.15
+				research_speed_factor = -0.03
+			}
+		}
+
+		hos_ethic_xenophobe = {
+			picture = hos_ethic_xenophobe
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				war_support_factor = 0.1
+				army_core_defence_factor = 0.1
+				justify_war_goal_time = -0.25
+				trade_opinion_factor = -0.25
+				opinion_gain_monthly_factor = -0.25
+			}
+		}
+
+		hos_ethic_xenophile = {
+			picture = hos_ethic_xenophile
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				trade_opinion_factor = 0.25
+				opinion_gain_monthly_factor = 0.25
+				research_speed_factor = 0.02
+				production_speed_buildings_factor = 0.05
+			}
+		}
+
+		hos_ethic_machine = {
+			picture = hos_ethic_machine
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				industrial_capacity_factory = 0.1
+				production_factory_max_efficiency_factor = 0.1
+				stability_factor = 0.15
+				monthly_population = -0.5
+				political_power_factor = -0.15
+			}
+		}
+
+		hos_ethic_hive = {
+			picture = hos_ethic_hive
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				conscription = 0.03
+				monthly_population = 0.5
+				army_org_factor = 0.05
+				stability_factor = 0.15
+				research_speed_factor = -0.1
+			}
+		}
+
+		### Space program
+
+		hos_orbital_satellites = {
+			picture = hos_satellite
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				research_speed_factor = 0.02
+				decryption_factor = 0.05
+			}
+		}
+
+		hos_orbital_spaceport = {
+			picture = hos_spaceport
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				industrial_capacity_dockyard = 0.05
+				naval_speed_factor = 0.05
+			}
+		}
+
+		hos_lunar_colony = {
+			picture = hos_moon
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				monthly_population = 0.1
+				conscription_factor = 0.05
+				stability_factor = 0.03
+			}
+		}
+
+		hos_jump_drives = {
+			picture = hos_jump_drive
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				naval_speed_factor = 0.1
+				army_speed_factor = 0.05
+				air_range_factor = 0.1
+			}
+		}
+
+		### Megastructures
+
+		hos_mega_dyson_sphere = {
+			picture = hos_dyson_sphere
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				industrial_capacity_factory = 0.15
+				production_speed_buildings_factor = 0.1
+			}
+		}
+
+		hos_mega_ring_world = {
+			picture = hos_ring_world
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				monthly_population = 0.5
+				conscription = 0.02
+				stability_factor = 0.05
+			}
+		}
+
+		hos_mega_science_nexus = {
+			picture = hos_science_nexus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				research_speed_factor = 0.1
+			}
+		}
+
+		hos_mega_sentry_array = {
+			picture = hos_sentry_array
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_intel_factor = 0.25
+				navy_intel_factor = 0.25
+				airforce_intel_factor = 0.25
+				civilian_intel_factor = 0.25
+				decryption_factor = 0.2
+				encryption_factor = 0.2
+			}
+		}
+
+		hos_mega_art_installation = {
+			picture = hos_art_installation
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.15
+				political_power_gain = 0.25
+			}
+		}
+
+		hos_mega_coordination_center = {
+			picture = hos_coordination_center
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				max_command_power = 50
+				command_power_gain = 0.2
+				planning_speed = 0.15
+				army_org_factor = 0.05
+			}
+		}
+
+		hos_mega_shipyard = {
+			picture = hos_mega_shipyard
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				industrial_capacity_dockyard = 0.2
+				naval_damage_factor = 0.05
+			}
+		}
+
+		hos_mega_gateway = {
+			picture = hos_gateway
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_speed_factor = 0.1
+				naval_invasion_capacity = 10
+			}
+		}
+
+		hos_colossus_online = {
+			picture = hos_colossus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				war_support_factor = 0.05
+				enemy_justify_war_goal_time = -0.2
+			}
+		}
+
+		hos_galactic_nemesis = {
+			picture = hos_nemesis
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_attack_factor = 0.15
+				war_support_factor = 0.2
+				stability_factor = 0.1
+				enemy_justify_war_goal_time = -0.5
+				opinion_gain_monthly_factor = -0.5
+			}
+		}
+
+		### Anomaly rewards (hos_anomaly events)
+
+		hos_anom_gary = {
+			picture = hos_anom_whale
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.05
+				war_support_factor = 0.03
+			}
+		}
+
+		hos_anom_rock_pal = {
+			picture = hos_anom_rock
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.1
+			}
+		}
+
+		hos_anom_dont_panic = {
+			picture = hos_anom_towel
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.05
+				war_support_factor = 0.05
+			}
+		}
+
+		hos_anom_amoeba_cavalry = {
+			picture = hos_anom_amoeba
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_speed_factor = 0.03
+				army_morale_factor = 0.05
+			}
+		}
+
+		hos_anom_shroud_whispers = {
+			picture = hos_anom_temple
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				political_power_factor = 0.1
+				stability_factor = -0.02
+			}
+		}
+
+		hos_anom_worm_touched = {
+			picture = hos_anom_signal
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				research_speed_factor = 0.05
+				stability_factor = -0.05
+			}
+		}
+
+		hos_anom_dragon_slayers = {
+			picture = hos_anom_dragon
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				air_attack_factor = 0.1
+				army_morale_factor = 0.05
+			}
+		}
+
+		### Endgame crisis
+
+		hos_crisis_prethoryn = {
+			picture = hos_crisis_prethoryn
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_attack_factor = 0.25
+				army_org_factor = 0.25
+				supply_consumption_factor = -0.75
+				out_of_supply_factor = -0.75
+				no_supply_grace = 240
+				attrition = -0.5
+				terrain_penalty_reduction = 0.5
+				winter_attrition_factor = -1
+				heat_attrition_factor = -1
+				weekly_manpower = 20000
+				land_reinforce_rate = 0.05
+				research_speed_factor = -0.9
+				stability_factor = 1
+				war_support_factor = 1
+			}
+		}
+
+		hos_crisis_unbidden = {
+			picture = hos_crisis_unbidden
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_attack_factor = 0.5
+				army_defence_factor = 0.25
+				army_morale_factor = 0.25
+				supply_consumption_factor = -0.75
+				out_of_supply_factor = -0.75
+				no_supply_grace = 240
+				attrition = -0.5
+				winter_attrition_factor = -1
+				heat_attrition_factor = -1
+				weekly_manpower = 15000
+				research_speed_factor = -0.9
+				stability_factor = 1
+				war_support_factor = 1
+			}
+		}
+
+		hos_crisis_contingency = {
+			picture = hos_crisis_contingency
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_defence_factor = 0.5
+				army_org_factor = 0.5
+				planning_speed = 1
+				supply_consumption_factor = -0.75
+				out_of_supply_factor = -0.75
+				no_supply_grace = 240
+				attrition = -0.5
+				winter_attrition_factor = -1
+				heat_attrition_factor = -1
+				weekly_manpower = 15000
+				research_speed_factor = -0.9
+				stability_factor = 1
+				war_support_factor = 1
+			}
+		}
+
+		hos_portal_collapsed = {
+			picture = hos_portal_collapsed
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_attack_factor = -0.5
+				army_defence_factor = -0.3
+				army_org_factor = -0.3
+				weekly_manpower = -15000
+			}
+		}
+
+		hos_hubs_destroyed = {
+			picture = hos_hubs_destroyed
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_attack_factor = -0.3
+				army_defence_factor = -0.5
+				army_org_factor = -0.5
+				weekly_manpower = -15000
+			}
+		}
+
+		hos_defender_of_the_galaxy = {
+			picture = hos_defender
+			allowed = { always = no }
+			removal_cost = -1
+			targeted_modifier = {
+				tag = PSC
+				attack_bonus_against = 0.5
+				defense_bonus_against = 0.5
+			}
+			targeted_modifier = {
+				tag = UNB
+				attack_bonus_against = 0.5
+				defense_bonus_against = 0.5
+			}
+			targeted_modifier = {
+				tag = CTG
+				attack_bonus_against = 0.5
+				defense_bonus_against = 0.5
+			}
+		}
+
+		hos_synth_betrayal = {
+			picture = hos_synth_betrayal
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				stability_factor = -0.15
+				industrial_capacity_factory = -0.15
+			}
+		}
+
+		hos_crisis_beaters = {
+			picture = hos_crisis_beaters
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.1
+				war_support_factor = 0.1
+				research_speed_factor = 0.05
+			}
+		}
+	}
+}

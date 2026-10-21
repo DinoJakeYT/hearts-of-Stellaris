@@ -1,0 +1,623 @@
+hos_space_program = {
+
+	# Players can rethink their ethics once a year
+	hos_embrace_new_ethos = {
+		icon = GFX_decision_generic_political_discourse
+		visible = {
+			is_ai = no
+		}
+		fire_only_once = no
+		days_re_enable = 365
+		cost = 150
+		complete_effect = {
+			country_event = { id = hos_ethics.1 }
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+
+	### The early space age
+
+	hos_launch_satellite = {
+		icon = GFX_decision_hos_satellite
+		visible = {
+			NOT = { has_country_flag = hos_satellite }
+		}
+		available = {
+			num_of_civilian_factories > 9
+		}
+		fire_only_once = yes
+		cost = 50
+		days_remove = 60
+		modifier = {
+			civilian_factory_use = 2
+		}
+		remove_effect = {
+			set_country_flag = hos_satellite
+			add_ideas = hos_orbital_satellites
+			country_event = { id = hos_space.1 }
+		}
+		ai_will_do = {
+			base = 2
+			modifier = { factor = 5 is_major = yes }
+			modifier = { factor = 0.2 has_war = yes }
+		}
+	}
+
+	hos_build_spaceport = {
+		icon = GFX_decision_hos_spaceport
+		visible = {
+			has_country_flag = hos_satellite
+			NOT = { has_country_flag = hos_spaceport }
+		}
+		available = {
+			num_of_civilian_factories > 14
+		}
+		fire_only_once = yes
+		cost = 75
+		days_remove = 120
+		modifier = {
+			civilian_factory_use = 4
+		}
+		remove_effect = {
+			set_country_flag = hos_spaceport
+			add_ideas = hos_orbital_spaceport
+			country_event = { id = hos_space.2 }
+		}
+		ai_will_do = {
+			base = 2
+			modifier = { factor = 5 is_major = yes }
+			modifier = { factor = 0.2 has_war = yes }
+		}
+	}
+
+	hos_launch_science_ship = {
+		icon = GFX_decision_hos_science_ship
+		visible = {
+			has_country_flag = hos_spaceport
+		}
+		fire_only_once = no
+		days_re_enable = 30
+		cost = 25
+		days_remove = 45
+		remove_effect = {
+			custom_effect_tooltip = hos_launch_science_ship_tt
+			hidden_effect = { hos_survey_anomaly = yes }
+		}
+		ai_will_do = {
+			base = 3
+			modifier = { factor = 0.5 has_war = yes }
+		}
+	}
+
+	hos_colonize_moon = {
+		icon = GFX_decision_hos_moon
+		visible = {
+			has_country_flag = hos_spaceport
+			NOT = { has_country_flag = hos_moon }
+		}
+		available = {
+			num_of_civilian_factories > 19
+		}
+		fire_only_once = yes
+		cost = 100
+		days_remove = 180
+		modifier = {
+			civilian_factory_use = 5
+		}
+		remove_effect = {
+			set_country_flag = hos_moon
+			add_ideas = hos_lunar_colony
+			country_event = { id = hos_space.3 }
+		}
+		ai_will_do = {
+			base = 2
+			modifier = { factor = 3 is_major = yes }
+			modifier = { factor = 0.2 has_war = yes }
+		}
+	}
+
+	hos_research_jump_drives = {
+		icon = GFX_decision_hos_jump_drive
+		visible = {
+			has_country_flag = hos_moon
+			NOT = { has_country_flag = hos_jump_drive }
+		}
+		fire_only_once = yes
+		cost = 100
+		days_remove = 240
+		modifier = {
+			research_speed_factor = -0.1
+		}
+		remove_effect = {
+			set_country_flag = hos_jump_drive
+			add_ideas = hos_jump_drives
+			custom_effect_tooltip = hos_jump_drive_warning_tt
+			country_event = { id = hos_space.4 }
+		}
+		ai_will_do = {
+			base = 1
+			modifier = { factor = 3 is_major = yes }
+		}
+	}
+
+	### Megastructures: one at a time, three of them unlock the Colossus
+
+	hos_build_dyson_sphere = {
+		icon = GFX_decision_hos_dyson_sphere
+		visible = {
+			has_country_flag = hos_spaceport
+		}
+		available = {
+			hos_building_megastructure = no
+			num_of_civilian_factories > 24
+		}
+		fire_only_once = yes
+		cost = 150
+		days_remove = 365
+		modifier = {
+			civilian_factory_use = 10
+		}
+		complete_effect = {
+			hos_megastructure_started = yes
+		}
+		remove_effect = {
+			hos_megastructure_finished = yes
+			add_ideas = hos_mega_dyson_sphere
+			country_event = { id = hos_space.10 }
+		}
+		ai_will_do = {
+			base = 1
+			modifier = { factor = 4 is_major = yes }
+			modifier = { factor = 0.3 has_war = yes }
+		}
+	}
+
+	hos_build_ring_world = {
+		icon = GFX_decision_hos_ring_world
+		visible = {
+			has_country_flag = hos_spaceport
+		}
+		available = {
+			hos_building_megastructure = no
+			has_country_flag = hos_moon
+			num_of_civilian_factories > 24
+		}
+		fire_only_once = yes
+		cost = 150
+		days_remove = 365
+		modifier = {
+			civilian_factory_use = 10
+		}
+		complete_effect = {
+			hos_megastructure_started = yes
+		}
+		remove_effect = {
+			hos_megastructure_finished = yes
+			add_ideas = hos_mega_ring_world
+			country_event = { id = hos_space.11 }
+		}
+		ai_will_do = {
+			base = 1
+			modifier = { factor = 4 is_major = yes }
+			modifier = { factor = 0.3 has_war = yes }
+		}
+	}
+
+	hos_build_science_nexus = {
+		icon = GFX_decision_hos_science_nexus
+		visible = {
+			has_country_flag = hos_spaceport
+		}
+		available = {
+			hos_building_megastructure = no
+			num_of_civilian_factories > 19
+		}
+		fire_only_once = yes
+		cost = 125
+		days_remove = 300
+		modifier = {
+			civilian_factory_use = 8
+		}
+		complete_effect = {
+			hos_megastructure_started = yes
+		}
+		remove_effect = {
+			hos_megastructure_finished = yes
+			add_ideas = hos_mega_science_nexus
+			add_research_slot = 1
+			country_event = { id = hos_space.12 }
+		}
+		ai_will_do = {
+			base = 1
+			modifier = { factor = 5 is_major = yes }
+			modifier = { factor = 0.3 has_war = yes }
+		}
+	}
+
+	hos_build_sentry_array = {
+		icon = GFX_decision_hos_sentry_array
+		visible = {
+			has_country_flag = hos_spaceport
+		}
+		available = {
+			hos_building_megastructure = no
+			num_of_civilian_factories > 14
+		}
+		fire_only_once = yes
+		cost = 100
+		days_remove = 240
+		modifier = {
+			civilian_factory_use = 6
+		}
+		complete_effect = {
+			hos_megastructure_started = yes
+		}
+		remove_effect = {
+			hos_megastructure_finished = yes
+			add_ideas = hos_mega_sentry_array
+			country_event = { id = hos_space.13 }
+		}
+		ai_will_do = {
+			base = 1
+			modifier = { factor = 2 is_major = yes }
+		}
+	}
+
+	hos_build_matter_decompressor = {
+		icon = GFX_decision_hos_matter_decompressor
+		visible = {
+			has_country_flag = hos_spaceport
+		}
+		available = {
+			hos_building_megastructure = no
+			num_of_civilian_factories > 19
+		}
+		fire_only_once = yes
+		cost = 125
+		days_remove = 300
+		modifier = {
+			civilian_factory_use = 8
+		}
+		complete_effect = {
+			hos_megastructure_started = yes
+		}
+		remove_effect = {
+			hos_megastructure_finished = yes
+			capital_scope = {
+				add_resource = { type = steel amount = 48 }
+				add_resource = { type = aluminium amount = 24 }
+				add_resource = { type = tungsten amount = 24 }
+				add_resource = { type = chromium amount = 24 }
+				add_resource = { type = rubber amount = 24 }
+			}
+			country_event = { id = hos_space.14 }
+		}
+		ai_will_do = {
+			base = 1
+			modifier = { factor = 4 is_major = yes }
+			modifier = { factor = 0.3 has_war = yes }
+		}
+	}
+
+	hos_build_art_installation = {
+		icon = GFX_decision_hos_art_installation
+		visible = {
+			has_country_flag = hos_spaceport
+		}
+		available = {
+			hos_building_megastructure = no
+			num_of_civilian_factories > 9
+		}
+		fire_only_once = yes
+		cost = 75
+		days_remove = 180
+		modifier = {
+			civilian_factory_use = 4
+		}
+		complete_effect = {
+			hos_megastructure_started = yes
+		}
+		remove_effect = {
+			hos_megastructure_finished = yes
+			add_ideas = hos_mega_art_installation
+			country_event = { id = hos_space.15 }
+		}
+		ai_will_do = {
+			base = 1
+			modifier = { factor = 2 has_stability < 0.5 }
+		}
+	}
+
+	hos_build_coordination_center = {
+		icon = GFX_decision_hos_coordination_center
+		visible = {
+			has_country_flag = hos_spaceport
+		}
+		available = {
+			hos_building_megastructure = no
+			num_of_civilian_factories > 19
+		}
+		fire_only_once = yes
+		cost = 125
+		days_remove = 300
+		modifier = {
+			civilian_factory_use = 8
+		}
+		complete_effect = {
+			hos_megastructure_started = yes
+		}
+		remove_effect = {
+			hos_megastructure_finished = yes
+			add_ideas = hos_mega_coordination_center
+			country_event = { id = hos_space.16 }
+		}
+		ai_will_do = {
+			base = 1
+			modifier = { factor = 3 is_major = yes }
+		}
+	}
+
+	hos_build_mega_shipyard = {
+		icon = GFX_decision_hos_mega_shipyard
+		visible = {
+			has_country_flag = hos_spaceport
+		}
+		available = {
+			hos_building_megastructure = no
+			num_of_civilian_factories > 19
+			any_owned_state = { is_coastal = yes }
+		}
+		fire_only_once = yes
+		cost = 125
+		days_remove = 300
+		modifier = {
+			civilian_factory_use = 8
+		}
+		complete_effect = {
+			hos_megastructure_started = yes
+		}
+		remove_effect = {
+			hos_megastructure_finished = yes
+			add_ideas = hos_mega_shipyard
+			country_event = { id = hos_space.17 }
+		}
+		ai_will_do = {
+			base = 1
+			modifier = { factor = 3 is_major = yes }
+		}
+	}
+
+	hos_build_gateway = {
+		icon = GFX_decision_hos_gateway
+		visible = {
+			has_country_flag = hos_spaceport
+		}
+		available = {
+			hos_building_megastructure = no
+			has_country_flag = hos_jump_drive
+		}
+		fire_only_once = yes
+		cost = 100
+		days_remove = 240
+		modifier = {
+			civilian_factory_use = 6
+		}
+		complete_effect = {
+			hos_megastructure_started = yes
+		}
+		remove_effect = {
+			hos_megastructure_finished = yes
+			add_ideas = hos_mega_gateway
+			country_event = { id = hos_space.18 }
+		}
+		ai_will_do = {
+			base = 1
+			modifier = { factor = 2 is_major = yes }
+		}
+	}
+
+	### Planet killers and worse
+
+	hos_build_colossus = {
+		icon = GFX_decision_hos_colossus
+		visible = {
+			has_country_flag = hos_spaceport
+			NOT = { has_country_flag = hos_colossus_built }
+		}
+		available = {
+			hos_building_megastructure = no
+			hos_has_megastructures = yes
+			num_of_civilian_factories > 24
+		}
+		fire_only_once = yes
+		cost = 200
+		days_remove = 450
+		modifier = {
+			civilian_factory_use = 15
+		}
+		complete_effect = {
+			hos_megastructure_started = yes
+			set_country_flag = hos_colossus_building
+			add_named_threat = { threat = 5 name = hos_colossus_threat }
+			save_global_event_target_as = hos_colossus_user
+			news_event = { id = hos_colossus.1 hours = 6 }
+		}
+		remove_effect = {
+			clr_country_flag = hos_mega_in_progress
+			clr_country_flag = hos_colossus_building
+			set_country_flag = hos_colossus_built
+			add_ideas = hos_colossus_online
+			country_event = { id = hos_colossus.2 }
+		}
+		ai_will_do = {
+			base = 1
+			modifier = { factor = 3 has_idea = hos_ethic_militarist }
+			modifier = { factor = 3 has_idea = hos_ethic_xenophobe }
+			modifier = { factor = 0 has_idea = hos_ethic_pacifist }
+		}
+	}
+
+	hos_become_the_crisis = {
+		icon = GFX_decision_hos_nemesis
+		visible = {
+			has_country_flag = hos_colossus_built
+			NOT = { has_country_flag = hos_nemesis }
+		}
+		available = {
+			is_major = yes
+			NOT = { has_idea = hos_ethic_pacifist }
+		}
+		fire_only_once = yes
+		cost = 250
+		days_remove = 120
+		remove_effect = {
+			set_country_flag = hos_nemesis
+			add_ideas = hos_galactic_nemesis
+			add_named_threat = { threat = 15 name = hos_nemesis_threat }
+			every_other_country = {
+				limit = { NOT = { hos_is_crisis_country = yes } }
+				add_opinion_modifier = { target = ROOT modifier = hos_nemesis_opinion }
+			}
+			save_global_event_target_as = hos_nemesis
+			news_event = { id = hos_colossus.20 hours = 6 }
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+
+	hos_aetherophasic_engine = {
+		icon = GFX_decision_hos_engine
+		visible = {
+			has_country_flag = hos_nemesis
+			NOT = { has_global_flag = hos_cycle_ended }
+		}
+		available = {
+			hos_building_megastructure = no
+			num_of_civilian_factories > 29
+		}
+		fire_only_once = yes
+		cost = 300
+		days_remove = 540
+		modifier = {
+			civilian_factory_use = 30
+		}
+		cancel_trigger = {
+			has_capitulated = yes
+		}
+		complete_effect = {
+			hos_megastructure_started = yes
+			save_global_event_target_as = hos_nemesis
+			custom_effect_tooltip = hos_engine_war_tt
+			hidden_effect = {
+				every_other_country = {
+					limit = {
+						is_major = yes
+						is_ai = yes
+						is_subject = no
+						NOT = { hos_is_crisis_country = yes }
+						NOT = { has_war_with = ROOT }
+						NOT = { is_in_faction_with = ROOT }
+					}
+					declare_war_on = { target = ROOT type = topple_government }
+				}
+			}
+			news_event = { id = hos_colossus.21 hours = 6 }
+		}
+		remove_effect = {
+			clr_country_flag = hos_mega_in_progress
+			set_global_flag = hos_cycle_ended
+			custom_effect_tooltip = hos_aetherophasic_engine_tt
+			hidden_effect = {
+				every_other_country = {
+					limit = { has_war_with = ROOT }
+					ROOT = { annex_country = { target = PREV transfer_troops = yes } }
+				}
+			}
+			news_event = { id = hos_colossus.22 hours = 6 }
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+}
+
+### The Colossus picks its targets on the map
+
+hos_colossus_category = {
+
+	hos_colossus_fire = {
+		icon = GFX_decision_hos_colossus_fire
+		state_target = yes
+		on_map_mode = map_only
+		target_root_trigger = {
+			has_country_flag = hos_colossus_built
+		}
+		target_trigger = {
+			FROM = {
+				NOT = { has_state_flag = hos_colossus_hit }
+				controller = { has_war_with = ROOT }
+			}
+		}
+		available = {
+			NOT = { has_country_flag = hos_colossus_charging }
+		}
+		fire_only_once = no
+		cost = 100
+		complete_effect = {
+			save_global_event_target_as = hos_colossus_user
+			FROM = {
+				save_global_event_target_as = hos_colossus_target
+				OWNER = { save_global_event_target_as = hos_colossus_victim }
+			}
+			if = {
+				limit = { has_country_flag = hos_colossus_world_cracker }
+				hos_world_cracker = yes
+			}
+			else_if = {
+				limit = { has_country_flag = hos_colossus_neutron_sweep }
+				hos_neutron_sweep = yes
+			}
+			else = {
+				hos_nanobot_diffuser = yes
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				factor = 20
+				FROM = { is_capital = yes }
+			}
+			modifier = {
+				factor = 0
+				has_idea = hos_ethic_pacifist
+			}
+		}
+	}
+}
+
+### Crisis response
+
+hos_galactic_crisis = {
+
+	hos_defender_of_the_galaxy_decision = {
+		icon = GFX_decision_hos_defender
+		visible = {
+			NOT = { has_idea = hos_defender_of_the_galaxy }
+		}
+		fire_only_once = yes
+		cost = 50
+		complete_effect = {
+			add_ideas = hos_defender_of_the_galaxy
+			every_other_country = {
+				limit = { has_idea = hos_defender_of_the_galaxy }
+				add_opinion_modifier = { target = ROOT modifier = hos_fellow_defender }
+			}
+		}
+		ai_will_do = {
+			base = 100
+		}
+	}
+}

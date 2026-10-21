@@ -1,0 +1,254 @@
+### Game start (on_startup in common/on_actions/hos_on_actions.txt)
+
+hos_on_startup = {
+	hos_set_crisis_strength = yes
+	every_country = {
+		limit = { NOT = { hos_is_crisis_country = yes } }
+		if = {
+			limit = { is_ai = no }
+			country_event = { id = hos_ethics.1 days = 1 }
+		}
+		else_if = {
+			limit = {
+				OR = {
+					has_game_rule = { rule = hos_ai_ethics option = ALL }
+					AND = {
+						has_game_rule = { rule = hos_ai_ethics option = MAJORS }
+						is_major = yes
+					}
+				}
+			}
+			hos_assign_ai_ethic = yes
+		}
+	}
+}
+
+hos_set_crisis_strength = {
+	set_global_flag = hos_crisis_enabled
+	if = {
+		limit = { has_game_rule = { rule = hos_crisis_type option = NONE } }
+		clr_global_flag = hos_crisis_enabled
+	}
+	# Divisions per landing state at arrival, and per monthly wave.
+	set_variable = { global.hos_crisis_spawn = 6 }
+	set_variable = { global.hos_crisis_wave = 3 }
+	set_variable = { global.hos_crisis_attack = 0 }
+	set_variable = { global.hos_crisis_defence = 0 }
+	set_variable = { global.hos_crisis_org = 0 }
+	if = {
+		limit = { has_game_rule = { rule = hos_crisis_strength option = X05 } }
+		set_variable = { global.hos_crisis_spawn = 4 }
+		set_variable = { global.hos_crisis_wave = 2 }
+		set_variable = { global.hos_crisis_attack = -0.25 }
+		set_variable = { global.hos_crisis_defence = -0.25 }
+	}
+	else_if = {
+		limit = { has_game_rule = { rule = hos_crisis_strength option = X2 } }
+		set_variable = { global.hos_crisis_spawn = 9 }
+		set_variable = { global.hos_crisis_wave = 4 }
+		set_variable = { global.hos_crisis_attack = 0.25 }
+		set_variable = { global.hos_crisis_defence = 0.25 }
+		set_variable = { global.hos_crisis_org = 0.1 }
+	}
+	else_if = {
+		limit = { has_game_rule = { rule = hos_crisis_strength option = X5 } }
+		set_variable = { global.hos_crisis_spawn = 12 }
+		set_variable = { global.hos_crisis_wave = 6 }
+		set_variable = { global.hos_crisis_attack = 0.75 }
+		set_variable = { global.hos_crisis_defence = 0.75 }
+		set_variable = { global.hos_crisis_org = 0.25 }
+	}
+	else_if = {
+		limit = { has_game_rule = { rule = hos_crisis_strength option = X10 } }
+		set_variable = { global.hos_crisis_spawn = 16 }
+		set_variable = { global.hos_crisis_wave = 8 }
+		set_variable = { global.hos_crisis_attack = 1.5 }
+		set_variable = { global.hos_crisis_defence = 1.5 }
+		set_variable = { global.hos_crisis_org = 0.5 }
+	}
+	else_if = {
+		limit = { has_game_rule = { rule = hos_crisis_strength option = X25 } }
+		set_variable = { global.hos_crisis_spawn = 24 }
+		set_variable = { global.hos_crisis_wave = 12 }
+		set_variable = { global.hos_crisis_attack = 4 }
+		set_variable = { global.hos_crisis_defence = 4 }
+		set_variable = { global.hos_crisis_org = 1 }
+	}
+}
+
+### Ethics
+
+hos_clear_ethics = {
+	remove_ideas = {
+		hos_ethic_militarist
+		hos_ethic_pacifist
+		hos_ethic_materialist
+		hos_ethic_spiritualist
+		hos_ethic_xenophobe
+		hos_ethic_xenophile
+		hos_ethic_machine
+		hos_ethic_hive
+	}
+}
+
+# AI countries lean towards the ethics that suit their ideology.
+hos_assign_ai_ethic = {
+	random_list = {
+		10 = {
+			modifier = { factor = 4 has_government = fascism }
+			modifier = { factor = 2 has_government = neutrality }
+			add_ideas = hos_ethic_militarist
+		}
+		10 = {
+			modifier = { factor = 3 has_government = democratic }
+			modifier = { factor = 0.3 has_government = fascism }
+			add_ideas = hos_ethic_pacifist
+		}
+		10 = {
+			modifier = { factor = 4 has_government = communism }
+			modifier = { factor = 2 has_government = democratic }
+			add_ideas = hos_ethic_materialist
+		}
+		10 = {
+			modifier = { factor = 3 has_government = neutrality }
+			add_ideas = hos_ethic_spiritualist
+		}
+		10 = {
+			modifier = { factor = 4 has_government = fascism }
+			modifier = { factor = 0.2 has_government = democratic }
+			add_ideas = hos_ethic_xenophobe
+		}
+		10 = {
+			modifier = { factor = 4 has_government = democratic }
+			modifier = { factor = 0.2 has_government = fascism }
+			add_ideas = hos_ethic_xenophile
+		}
+		3 = {
+			modifier = { factor = 3 has_government = communism }
+			add_ideas = hos_ethic_machine
+		}
+		3 = {
+			modifier = { factor = 2 has_government = communism }
+			modifier = { factor = 2 has_government = fascism }
+			add_ideas = hos_ethic_hive
+		}
+	}
+}
+
+### Space program
+
+hos_megastructure_started = {
+	set_country_flag = hos_mega_in_progress
+}
+
+hos_megastructure_finished = {
+	clr_country_flag = hos_mega_in_progress
+	add_to_variable = { hos_megastructures = 1 }
+}
+
+# A science ship surveys an anomaly. Each anomaly turns up once per country; after that, rocks.
+hos_survey_anomaly = {
+	random_list = {
+		10 = {
+			modifier = { factor = 0 has_country_flag = hos_anom_whale }
+			country_event = { id = hos_anomaly.1 days = 1 }
+		}
+		10 = {
+			modifier = { factor = 0 has_country_flag = hos_anom_cache }
+			country_event = { id = hos_anomaly.2 days = 1 }
+		}
+		10 = {
+			modifier = { factor = 0 has_country_flag = hos_anom_rock }
+			country_event = { id = hos_anomaly.3 days = 1 }
+		}
+		10 = {
+			modifier = { factor = 0 has_country_flag = hos_anom_towel }
+			country_event = { id = hos_anomaly.4 days = 1 }
+		}
+		10 = {
+			modifier = { factor = 0 has_country_flag = hos_anom_goo }
+			country_event = { id = hos_anomaly.5 days = 1 }
+		}
+		10 = {
+			modifier = { factor = 0 has_country_flag = hos_anom_amoeba }
+			country_event = { id = hos_anomaly.6 days = 1 }
+		}
+		10 = {
+			modifier = { factor = 0 has_country_flag = hos_anom_derelict }
+			country_event = { id = hos_anomaly.7 days = 1 }
+		}
+		10 = {
+			modifier = { factor = 0 has_country_flag = hos_anom_temple }
+			country_event = { id = hos_anomaly.8 days = 1 }
+		}
+		10 = {
+			modifier = { factor = 0 has_country_flag = hos_anom_signal }
+			country_event = { id = hos_anomaly.9 days = 1 }
+		}
+		10 = {
+			modifier = { factor = 0 has_country_flag = hos_anom_dragon }
+			country_event = { id = hos_anomaly.10 days = 1 }
+		}
+		3 = {
+			country_event = { id = hos_anomaly.99 days = 1 }
+		}
+	}
+}
+
+### Colossus (FROM is the target state in hos_colossus_fire)
+
+hos_colossus_aftermath = {
+	set_country_flag = { flag = hos_colossus_charging days = 60 value = 1 }
+	add_named_threat = { threat = 3 name = hos_colossus_threat }
+	every_other_country = {
+		limit = { NOT = { hos_is_crisis_country = yes } }
+		add_opinion_modifier = { target = ROOT modifier = hos_used_colossus }
+	}
+}
+
+hos_world_cracker = {
+	FROM = {
+		set_state_flag = hos_colossus_hit
+		set_state_category = wasteland
+		set_building_level = { type = industrial_complex level = 0 }
+		set_building_level = { type = arms_factory level = 0 }
+		set_building_level = { type = dockyard level = 0 }
+		set_building_level = { type = infrastructure level = 0 }
+		set_building_level = { type = air_base level = 0 }
+		set_building_level = { type = anti_air_building level = 0 }
+		set_building_level = { type = radar_station level = 0 }
+		set_building_level = { type = synthetic_refinery level = 0 }
+		set_building_level = { type = fuel_silo level = 0 }
+		set_building_level = { type = rocket_site level = 0 }
+		set_building_level = { type = nuclear_reactor level = 0 }
+		add_manpower = -10000000
+		add_dynamic_modifier = { modifier = hos_shattered_world }
+		damage_units = { state = THIS ratio = yes org_damage = 1 str_damage = 0.9 }
+		set_state_name = HOS_SHATTERED_STATE_NAME
+	}
+	hos_colossus_aftermath = yes
+	news_event = { id = hos_colossus.10 hours = 1 }
+}
+
+hos_neutron_sweep = {
+	FROM = {
+		set_state_flag = hos_colossus_hit
+		add_manpower = -10000000
+		add_dynamic_modifier = { modifier = hos_depopulated_world }
+		damage_units = { state = THIS ratio = yes org_damage = 1 str_damage = 0.95 }
+		OWNER = { add_manpower = -100000 }
+	}
+	hos_colossus_aftermath = yes
+	news_event = { id = hos_colossus.11 hours = 1 }
+}
+
+hos_nanobot_diffuser = {
+	FROM = {
+		set_state_flag = hos_colossus_hit
+		damage_units = { state = THIS ratio = yes org_damage = 1 str_damage = 0.5 }
+		ROOT = { transfer_state = PREV }
+		add_core_of = ROOT
+	}
+	hos_colossus_aftermath = yes
+	news_event = { id = hos_colossus.12 hours = 1 }
+}

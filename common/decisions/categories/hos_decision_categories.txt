@@ -1,0 +1,28 @@
+hos_space_program = {
+	icon = hos_space
+	picture = GFX_decision_cat_picture_hos_space
+	priority = 40
+	visible = {
+		NOT = { hos_is_crisis_country = yes }
+	}
+}
+
+hos_colossus_category = {
+	icon = hos_colossus
+	picture = GFX_decision_cat_picture_hos_colossus
+	priority = 45
+	visible = {
+		has_country_flag = hos_colossus_built
+	}
+}
+
+hos_galactic_crisis = {
+	icon = hos_crisis
+	picture = GFX_decision_cat_picture_hos_crisis
+	priority = 50
+	visible = {
+		has_global_flag = hos_crisis_spawned
+		NOT = { has_global_flag = hos_crisis_over }
+		NOT = { hos_is_crisis_country = yes }
+	}
+}

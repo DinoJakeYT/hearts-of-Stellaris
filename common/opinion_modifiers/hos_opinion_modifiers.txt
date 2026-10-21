@@ -1,0 +1,13 @@
+opinion_modifiers = {
+	hos_used_colossus = {
+		value = -30
+		decay = 1
+	}
+	hos_nemesis_opinion = {
+		value = -100
+	}
+	hos_fellow_defender = {
+		value = 25
+		decay = 1
+	}
+}

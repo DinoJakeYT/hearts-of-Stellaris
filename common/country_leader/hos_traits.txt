@@ -1,0 +1,38 @@
+leader_traits = {
+
+	hos_devouring_swarm = {
+		random = no
+		sprite = 13
+
+		army_org_factor = 0.1
+		land_reinforce_rate = 0.05
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	hos_extradimensional_hunger = {
+		random = no
+		sprite = 13
+
+		army_attack_factor = 0.1
+		army_morale_factor = 0.1
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	hos_sterilization_protocol = {
+		random = no
+		sprite = 13
+
+		army_defence_factor = 0.1
+		planning_speed = 0.25
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+}

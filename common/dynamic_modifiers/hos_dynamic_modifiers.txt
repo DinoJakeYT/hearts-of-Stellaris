@@ -1,0 +1,37 @@
+# Crisis strength game rule. hos_set_crisis_strength sets the globals on startup.
+hos_crisis_strength = {
+	icon = GFX_idea_hos_crisis_strength
+	enable = { always = yes }
+
+	army_attack_factor = global.hos_crisis_attack
+	army_defence_factor = global.hos_crisis_defence
+	army_org_factor = global.hos_crisis_org
+}
+
+# A state hit by a World Cracker
+hos_shattered_world = {
+	icon = GFX_idea_hos_colossus
+	enable = { always = yes }
+
+	local_building_slots_factor = -0.9
+	recruitable_population_factor = -0.9
+	local_resources_factor = -0.9
+	local_manpower = -0.9
+}
+
+# A state hit by a Neutron Sweep
+hos_depopulated_world = {
+	icon = GFX_idea_hos_colossus
+	enable = { always = yes }
+
+	recruitable_population_factor = -0.95
+	local_manpower = -0.95
+}
+
+# A Contingency sterilization hub
+hos_sterilization_hub = {
+	icon = GFX_idea_hos_crisis_contingency
+	enable = { always = yes }
+
+	local_resources_factor = 0.5
+}

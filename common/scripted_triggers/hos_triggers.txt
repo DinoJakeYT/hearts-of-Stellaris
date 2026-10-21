@@ -1,0 +1,53 @@
+hos_is_crisis_country = {
+	OR = {
+		tag = PSC
+		tag = UNB
+		tag = CTG
+	}
+}
+
+hos_crisis_date_reached = {
+	OR = {
+		AND = {
+			has_game_rule = { rule = hos_crisis_year option = Y1938 }
+			date > 1938.1.1
+		}
+		AND = {
+			has_game_rule = { rule = hos_crisis_year option = Y1940 }
+			date > 1940.1.1
+		}
+		AND = {
+			has_game_rule = { rule = hos_crisis_year option = Y1942 }
+			date > 1942.1.1
+		}
+		AND = {
+			has_game_rule = { rule = hos_crisis_year option = Y1945 }
+			date > 1945.1.1
+		}
+		AND = {
+			has_game_rule = { rule = hos_crisis_year option = Y1948 }
+			date > 1948.1.1
+		}
+	}
+}
+
+# State scope: somewhere a crisis may claim when it arrives
+hos_crisis_spawn_state = {
+	is_capital = no
+	NOT = { has_state_flag = hos_crisis_state }
+	state_population_k > 200
+	owner = {
+		NOT = { hos_is_crisis_country = yes }
+		has_capitulated = no
+	}
+	is_owned_and_controlled_by = OWNER
+}
+
+# Country scope: how many megastructures this country has finished
+hos_has_megastructures = {
+	check_variable = { hos_megastructures > 2 }
+}
+
+hos_building_megastructure = {
+	has_country_flag = hos_mega_in_progress
+}

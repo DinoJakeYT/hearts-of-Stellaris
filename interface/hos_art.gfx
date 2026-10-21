@@ -1,0 +1,656 @@
+# Written by tools/import_stellaris_art.py. Rerun it rather than editing this file.
+spriteTypes = {
+	spriteType = {
+		name = "GFX_report_event_hos_codex"
+		texturefile = "gfx/event_pictures/hos_codex.dds"
+	}
+	spriteType = {
+		name = "GFX_news_event_hos_codex"
+		texturefile = "gfx/event_pictures/hos_news_codex.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_hos_gestalt"
+		texturefile = "gfx/event_pictures/hos_gestalt.dds"
+	}
+	spriteType = {
+		name = "GFX_news_event_hos_gestalt"
+		texturefile = "gfx/event_pictures/hos_news_gestalt.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_hos_machine"
+		texturefile = "gfx/event_pictures/hos_machine.dds"
+	}
+	spriteType = {
+		name = "GFX_news_event_hos_machine"
+		texturefile = "gfx/event_pictures/hos_news_machine.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_hos_galactic_community"
+		texturefile = "gfx/event_pictures/hos_galactic_community.dds"
+	}
+	spriteType = {
+		name = "GFX_news_event_hos_galactic_community"
+		texturefile = "gfx/event_pictures/hos_news_galactic_community.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_hos_satellite"
+		texturefile = "gfx/event_pictures/hos_satellite.dds"
+	}
+	spriteType = {
+		name = "GFX_news_event_hos_satellite"
+		texturefile = "gfx/event_pictures/hos_news_satellite.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_hos_spaceport"
+		texturefile = "gfx/event_pictures/hos_spaceport.dds"
+	}
+	spriteType = {
+		name = "GFX_news_event_hos_spaceport"
+		texturefile = "gfx/event_pictures/hos_news_spaceport.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_hos_science_ship"
+		texturefile = "gfx/event_pictures/hos_science_ship.dds"
+	}
+	spriteType = {
+		name = "GFX_news_event_hos_science_ship"
+		texturefile = "gfx/event_pictures/hos_news_science_ship.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_hos_moon"
+		texturefile = "gfx/event_pictures/hos_moon.dds"
+	}
+	spriteType = {
+		name = "GFX_news_event_hos_moon"
+		texturefile = "gfx/event_pictures/hos_news_moon.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_hos_jump_drive"
+		texturefile = "gfx/event_pictures/hos_jump_drive.dds"
+	}
+	spriteType = {
+		name = "GFX_news_event_hos_jump_drive"
+		texturefile = "gfx/event_pictures/hos_news_jump_drive.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_hos_mega_construction"
+		texturefile = "gfx/event_pictures/hos_mega_construction.dds"
+	}
+	spriteType = {
+		name = "GFX_news_event_hos_mega_construction"
+		texturefile = "gfx/event_pictures/hos_news_mega_construction.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_hos_dyson_sphere"
+		texturefile = "gfx/event_pictures/hos_dyson_sphere.dds"
+	}
+	spriteType = {
+		name = "GFX_news_event_hos_dyson_sphere"
+		texturefile = "gfx/event_pictures/hos_news_dyson_sphere.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_hos_ring_world"
+		texturefile = "gfx/event_pictures/hos_ring_world.dds"
+	}
+	spriteType = {
+		name = "GFX_news_event_hos_ring_world"
+		texturefile = "gfx/event_pictures/hos_news_ring_world.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_hos_science_nexus"
+		texturefile = "gfx/event_pictures/hos_science_nexus.dds"
+	}
+	spriteType = {
+		name = "GFX_news_event_hos_science_nexus"
+		texturefile = "gfx/event_pictures/hos_news_science_nexus.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_hos_sentry_array"
+		texturefile = "gfx/event_pictures/hos_sentry_array.dds"
+	}
+	spriteType = {
+		name = "GFX_news_event_hos_sentry_array"
+		texturefile = "gfx/event_pictures/hos_news_sentry_array.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_hos_matter_decompressor"
+		texturefile = "gfx/event_pictures/hos_matter_decompressor.dds"
+	}
+	spriteType = {
+		name = "GFX_news_event_hos_matter_decompressor"
+		texturefile = "gfx/event_pictures/hos_news_matter_decompressor.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_hos_art_installation"
+		texturefile = "gfx/event_pictures/hos_art_installation.dds"
+	}
+	spriteType = {
+		name = "GFX_news_event_hos_art_installation"
+		texturefile = "gfx/event_pictures/hos_news_art_installation.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_hos_coordination_center"
+		texturefile = "gfx/event_pictures/hos_coordination_center.dds"
+	}
+	spriteType = {
+		name = "GFX_news_event_hos_coordination_center"
+		texturefile = "gfx/event_pictures/hos_news_coordination_center.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_hos_mega_shipyard"
+		texturefile = "gfx/event_pictures/hos_mega_shipyard.dds"
+	}
+	spriteType = {
+		name = "GFX_news_event_hos_mega_shipyard"
+		texturefile = "gfx/event_pictures/hos_news_mega_shipyard.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_hos_gateway"
+		texturefile = "gfx/event_pictures/hos_gateway.dds"
+	}
+	spriteType = {
+		name = "GFX_news_event_hos_gateway"
+		texturefile = "gfx/event_pictures/hos_news_gateway.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_hos_colossus"
+		texturefile = "gfx/event_pictures/hos_colossus.dds"
+	}
+	spriteType = {
+		name = "GFX_news_event_hos_colossus"
+		texturefile = "gfx/event_pictures/hos_news_colossus.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_hos_world_cracker"
+		texturefile = "gfx/event_pictures/hos_world_cracker.dds"
+	}
+	spriteType = {
+		name = "GFX_news_event_hos_world_cracker"
+		texturefile = "gfx/event_pictures/hos_news_world_cracker.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_hos_neutron_sweep"
+		texturefile = "gfx/event_pictures/hos_neutron_sweep.dds"
+	}
+	spriteType = {
+		name = "GFX_news_event_hos_neutron_sweep"
+		texturefile = "gfx/event_pictures/hos_news_neutron_sweep.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_hos_nanobot_diffuser"
+		texturefile = "gfx/event_pictures/hos_nanobot_diffuser.dds"
+	}
+	spriteType = {
+		name = "GFX_news_event_hos_nanobot_diffuser"
+		texturefile = "gfx/event_pictures/hos_news_nanobot_diffuser.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_hos_nemesis"
+		texturefile = "gfx/event_pictures/hos_nemesis.dds"
+	}
+	spriteType = {
+		name = "GFX_news_event_hos_nemesis"
+		texturefile = "gfx/event_pictures/hos_news_nemesis.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_hos_engine_start"
+		texturefile = "gfx/event_pictures/hos_engine_start.dds"
+	}
+	spriteType = {
+		name = "GFX_news_event_hos_engine_start"
+		texturefile = "gfx/event_pictures/hos_news_engine_start.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_hos_engine_complete"
+		texturefile = "gfx/event_pictures/hos_engine_complete.dds"
+	}
+	spriteType = {
+		name = "GFX_news_event_hos_engine_complete"
+		texturefile = "gfx/event_pictures/hos_news_engine_complete.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_hos_anom_whale"
+		texturefile = "gfx/event_pictures/hos_anom_whale.dds"
+	}
+	spriteType = {
+		name = "GFX_news_event_hos_anom_whale"
+		texturefile = "gfx/event_pictures/hos_news_anom_whale.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_hos_anom_cache"
+		texturefile = "gfx/event_pictures/hos_anom_cache.dds"
+	}
+	spriteType = {
+		name = "GFX_news_event_hos_anom_cache"
+		texturefile = "gfx/event_pictures/hos_news_anom_cache.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_hos_anom_rock"
+		texturefile = "gfx/event_pictures/hos_anom_rock.dds"
+	}
+	spriteType = {
+		name = "GFX_news_event_hos_anom_rock"
+		texturefile = "gfx/event_pictures/hos_news_anom_rock.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_hos_anom_towel"
+		texturefile = "gfx/event_pictures/hos_anom_towel.dds"
+	}
+	spriteType = {
+		name = "GFX_news_event_hos_anom_towel"
+		texturefile = "gfx/event_pictures/hos_news_anom_towel.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_hos_anom_goo"
+		texturefile = "gfx/event_pictures/hos_anom_goo.dds"
+	}
+	spriteType = {
+		name = "GFX_news_event_hos_anom_goo"
+		texturefile = "gfx/event_pictures/hos_news_anom_goo.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_hos_anom_amoeba"
+		texturefile = "gfx/event_pictures/hos_anom_amoeba.dds"
+	}
+	spriteType = {
+		name = "GFX_news_event_hos_anom_amoeba"
+		texturefile = "gfx/event_pictures/hos_news_anom_amoeba.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_hos_anom_derelict"
+		texturefile = "gfx/event_pictures/hos_anom_derelict.dds"
+	}
+	spriteType = {
+		name = "GFX_news_event_hos_anom_derelict"
+		texturefile = "gfx/event_pictures/hos_news_anom_derelict.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_hos_anom_temple"
+		texturefile = "gfx/event_pictures/hos_anom_temple.dds"
+	}
+	spriteType = {
+		name = "GFX_news_event_hos_anom_temple"
+		texturefile = "gfx/event_pictures/hos_news_anom_temple.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_hos_anom_signal"
+		texturefile = "gfx/event_pictures/hos_anom_signal.dds"
+	}
+	spriteType = {
+		name = "GFX_news_event_hos_anom_signal"
+		texturefile = "gfx/event_pictures/hos_news_anom_signal.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_hos_anom_dragon"
+		texturefile = "gfx/event_pictures/hos_anom_dragon.dds"
+	}
+	spriteType = {
+		name = "GFX_news_event_hos_anom_dragon"
+		texturefile = "gfx/event_pictures/hos_news_anom_dragon.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_hos_anom_nothing"
+		texturefile = "gfx/event_pictures/hos_anom_nothing.dds"
+	}
+	spriteType = {
+		name = "GFX_news_event_hos_anom_nothing"
+		texturefile = "gfx/event_pictures/hos_news_anom_nothing.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_hos_prethoryn_warning"
+		texturefile = "gfx/event_pictures/hos_prethoryn_warning.dds"
+	}
+	spriteType = {
+		name = "GFX_news_event_hos_prethoryn_warning"
+		texturefile = "gfx/event_pictures/hos_news_prethoryn_warning.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_hos_prethoryn_arrival"
+		texturefile = "gfx/event_pictures/hos_prethoryn_arrival.dds"
+	}
+	spriteType = {
+		name = "GFX_news_event_hos_prethoryn_arrival"
+		texturefile = "gfx/event_pictures/hos_news_prethoryn_arrival.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_hos_unbidden_warning"
+		texturefile = "gfx/event_pictures/hos_unbidden_warning.dds"
+	}
+	spriteType = {
+		name = "GFX_news_event_hos_unbidden_warning"
+		texturefile = "gfx/event_pictures/hos_news_unbidden_warning.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_hos_unbidden_arrival"
+		texturefile = "gfx/event_pictures/hos_unbidden_arrival.dds"
+	}
+	spriteType = {
+		name = "GFX_news_event_hos_unbidden_arrival"
+		texturefile = "gfx/event_pictures/hos_news_unbidden_arrival.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_hos_contingency_warning"
+		texturefile = "gfx/event_pictures/hos_contingency_warning.dds"
+	}
+	spriteType = {
+		name = "GFX_news_event_hos_contingency_warning"
+		texturefile = "gfx/event_pictures/hos_news_contingency_warning.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_hos_contingency_arrival"
+		texturefile = "gfx/event_pictures/hos_contingency_arrival.dds"
+	}
+	spriteType = {
+		name = "GFX_news_event_hos_contingency_arrival"
+		texturefile = "gfx/event_pictures/hos_news_contingency_arrival.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_hos_crisis_defeated"
+		texturefile = "gfx/event_pictures/hos_crisis_defeated.dds"
+	}
+	spriteType = {
+		name = "GFX_news_event_hos_crisis_defeated"
+		texturefile = "gfx/event_pictures/hos_news_crisis_defeated.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_hos_defender"
+		texturefile = "gfx/event_pictures/hos_defender.dds"
+	}
+	spriteType = {
+		name = "GFX_news_event_hos_defender"
+		texturefile = "gfx/event_pictures/hos_news_defender.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_hos_synth_betrayal"
+		texturefile = "gfx/event_pictures/hos_synth_betrayal.dds"
+	}
+	spriteType = {
+		name = "GFX_news_event_hos_synth_betrayal"
+		texturefile = "gfx/event_pictures/hos_news_synth_betrayal.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_hos_portal_collapse"
+		texturefile = "gfx/event_pictures/hos_portal_collapse.dds"
+	}
+	spriteType = {
+		name = "GFX_news_event_hos_portal_collapse"
+		texturefile = "gfx/event_pictures/hos_news_portal_collapse.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_hos_hubs_destroyed"
+		texturefile = "gfx/event_pictures/hos_hubs_destroyed.dds"
+	}
+	spriteType = {
+		name = "GFX_news_event_hos_hubs_destroyed"
+		texturefile = "gfx/event_pictures/hos_news_hubs_destroyed.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_hos_ethic_militarist"
+		texturefile = "gfx/interface/ideas/hos_ethic_militarist.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_hos_ethic_pacifist"
+		texturefile = "gfx/interface/ideas/hos_ethic_pacifist.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_hos_ethic_materialist"
+		texturefile = "gfx/interface/ideas/hos_ethic_materialist.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_hos_ethic_spiritualist"
+		texturefile = "gfx/interface/ideas/hos_ethic_spiritualist.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_hos_ethic_xenophobe"
+		texturefile = "gfx/interface/ideas/hos_ethic_xenophobe.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_hos_ethic_xenophile"
+		texturefile = "gfx/interface/ideas/hos_ethic_xenophile.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_hos_ethic_machine"
+		texturefile = "gfx/interface/ideas/hos_ethic_machine.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_hos_ethic_hive"
+		texturefile = "gfx/interface/ideas/hos_ethic_hive.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_hos_satellite"
+		texturefile = "gfx/interface/ideas/hos_satellite.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_hos_spaceport"
+		texturefile = "gfx/interface/ideas/hos_spaceport.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_hos_moon"
+		texturefile = "gfx/interface/ideas/hos_moon.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_hos_jump_drive"
+		texturefile = "gfx/interface/ideas/hos_jump_drive.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_hos_dyson_sphere"
+		texturefile = "gfx/interface/ideas/hos_dyson_sphere.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_hos_ring_world"
+		texturefile = "gfx/interface/ideas/hos_ring_world.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_hos_science_nexus"
+		texturefile = "gfx/interface/ideas/hos_science_nexus.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_hos_sentry_array"
+		texturefile = "gfx/interface/ideas/hos_sentry_array.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_hos_art_installation"
+		texturefile = "gfx/interface/ideas/hos_art_installation.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_hos_coordination_center"
+		texturefile = "gfx/interface/ideas/hos_coordination_center.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_hos_mega_shipyard"
+		texturefile = "gfx/interface/ideas/hos_mega_shipyard.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_hos_gateway"
+		texturefile = "gfx/interface/ideas/hos_gateway.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_hos_colossus"
+		texturefile = "gfx/interface/ideas/hos_colossus.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_hos_nemesis"
+		texturefile = "gfx/interface/ideas/hos_nemesis.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_hos_defender"
+		texturefile = "gfx/interface/ideas/hos_defender.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_hos_anom_whale"
+		texturefile = "gfx/interface/ideas/hos_anom_whale.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_hos_anom_rock"
+		texturefile = "gfx/interface/ideas/hos_anom_rock.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_hos_anom_towel"
+		texturefile = "gfx/interface/ideas/hos_anom_towel.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_hos_anom_amoeba"
+		texturefile = "gfx/interface/ideas/hos_anom_amoeba.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_hos_anom_temple"
+		texturefile = "gfx/interface/ideas/hos_anom_temple.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_hos_anom_signal"
+		texturefile = "gfx/interface/ideas/hos_anom_signal.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_hos_anom_dragon"
+		texturefile = "gfx/interface/ideas/hos_anom_dragon.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_hos_crisis_prethoryn"
+		texturefile = "gfx/interface/ideas/hos_crisis_prethoryn.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_hos_crisis_unbidden"
+		texturefile = "gfx/interface/ideas/hos_crisis_unbidden.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_hos_crisis_contingency"
+		texturefile = "gfx/interface/ideas/hos_crisis_contingency.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_hos_crisis_strength"
+		texturefile = "gfx/interface/ideas/hos_crisis_strength.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_hos_portal_collapsed"
+		texturefile = "gfx/interface/ideas/hos_portal_collapsed.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_hos_hubs_destroyed"
+		texturefile = "gfx/interface/ideas/hos_hubs_destroyed.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_hos_crisis_beaters"
+		texturefile = "gfx/interface/ideas/hos_crisis_beaters.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_hos_synth_betrayal"
+		texturefile = "gfx/interface/ideas/hos_synth_betrayal.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_hos_satellite"
+		texturefile = "gfx/interface/decisions/hos_satellite.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_hos_spaceport"
+		texturefile = "gfx/interface/decisions/hos_spaceport.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_hos_science_ship"
+		texturefile = "gfx/interface/decisions/hos_science_ship.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_hos_moon"
+		texturefile = "gfx/interface/decisions/hos_moon.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_hos_jump_drive"
+		texturefile = "gfx/interface/decisions/hos_jump_drive.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_hos_dyson_sphere"
+		texturefile = "gfx/interface/decisions/hos_dyson_sphere.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_hos_ring_world"
+		texturefile = "gfx/interface/decisions/hos_ring_world.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_hos_science_nexus"
+		texturefile = "gfx/interface/decisions/hos_science_nexus.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_hos_sentry_array"
+		texturefile = "gfx/interface/decisions/hos_sentry_array.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_hos_matter_decompressor"
+		texturefile = "gfx/interface/decisions/hos_matter_decompressor.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_hos_art_installation"
+		texturefile = "gfx/interface/decisions/hos_art_installation.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_hos_coordination_center"
+		texturefile = "gfx/interface/decisions/hos_coordination_center.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_hos_mega_shipyard"
+		texturefile = "gfx/interface/decisions/hos_mega_shipyard.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_hos_gateway"
+		texturefile = "gfx/interface/decisions/hos_gateway.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_hos_colossus"
+		texturefile = "gfx/interface/decisions/hos_colossus.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_hos_colossus_fire"
+		texturefile = "gfx/interface/decisions/hos_colossus_fire.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_hos_nemesis"
+		texturefile = "gfx/interface/decisions/hos_nemesis.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_hos_engine"
+		texturefile = "gfx/interface/decisions/hos_engine.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_hos_defender"
+		texturefile = "gfx/interface/decisions/hos_defender.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_category_hos_space"
+		texturefile = "gfx/interface/decisions/hos_category_space.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_cat_picture_hos_space"
+		texturefile = "gfx/interface/decisions/hos_cat_picture_space.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_category_hos_colossus"
+		texturefile = "gfx/interface/decisions/hos_category_colossus.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_cat_picture_hos_colossus"
+		texturefile = "gfx/interface/decisions/hos_cat_picture_colossus.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_category_hos_crisis"
+		texturefile = "gfx/interface/decisions/hos_category_crisis.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_cat_picture_hos_crisis"
+		texturefile = "gfx/interface/decisions/hos_cat_picture_crisis.dds"
+	}
+	spriteType = {
+		name = "GFX_portrait_hos_prethoryn_queen"
+		texturefile = "gfx/leaders/hos/prethoryn_queen.dds"
+	}
+	spriteType = {
+		name = "GFX_portrait_hos_unbidden_warlock"
+		texturefile = "gfx/leaders/hos/unbidden_warlock.dds"
+	}
+	spriteType = {
+		name = "GFX_portrait_hos_contingency_core"
+		texturefile = "gfx/leaders/hos/contingency_core.dds"
+	}
+	spriteType = {
+		name = "GFX_stellaris_album_art"
+		texturefile = "gfx/interface/topbar/musicplayer/hos_stellaris_album_art.dds"
+		noOfFrames = 2
+	}
+}

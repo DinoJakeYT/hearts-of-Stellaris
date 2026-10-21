@@ -1,0 +1,44 @@
+### Testing: only visible when HOI4 runs with -debug
+
+hos_space_program = {
+
+	hos_debug_summon_crisis = {
+		icon = GFX_decision_hos_defender
+		visible = {
+			is_debug = yes
+			NOT = { has_global_flag = hos_crisis_arrived }
+		}
+		complete_effect = {
+			set_global_flag = hos_crisis_enabled
+			if = {
+				limit = { NOT = { has_global_flag = hos_crisis_warning } }
+				hos_crisis_warning = yes
+			}
+			hos_crisis_arrival = yes
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+
+	hos_debug_space_age = {
+		icon = GFX_decision_hos_spaceport
+		visible = {
+			is_debug = yes
+			NOT = { has_country_flag = hos_colossus_built }
+		}
+		complete_effect = {
+			set_country_flag = hos_satellite
+			set_country_flag = hos_spaceport
+			set_country_flag = hos_moon
+			set_country_flag = hos_jump_drive
+			set_variable = { hos_megastructures = 3 }
+			set_country_flag = hos_colossus_built
+			add_ideas = hos_colossus_online
+			country_event = { id = hos_colossus.2 }
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+}

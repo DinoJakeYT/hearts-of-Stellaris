@@ -1,0 +1,158 @@
+add_namespace = hos_colossus
+
+# Global event targets used by the text: hos_colossus_user (who built or fired it),
+# hos_colossus_target (the state hit), hos_colossus_victim (who owned it), hos_nemesis.
+
+# World news: someone has started a Colossus
+news_event = {
+	id = hos_colossus.1
+	title = hos_colossus.1.t
+	desc = hos_colossus.1.d
+	picture = GFX_news_event_hos_mega_construction
+	major = yes
+	is_triggered_only = yes
+
+	option = {
+		name = hos_colossus.1.a
+		trigger = { NOT = { has_country_flag = hos_colossus_building } }
+	}
+	option = {
+		name = hos_colossus.1.b
+		trigger = { has_country_flag = hos_colossus_building }
+	}
+}
+
+# The Colossus is ready: pick its weapon
+country_event = {
+	id = hos_colossus.2
+	title = hos_colossus.2.t
+	desc = hos_colossus.2.d
+	picture = GFX_report_event_hos_colossus
+	is_triggered_only = yes
+
+	option = {
+		name = hos_colossus.2.a
+		set_country_flag = hos_colossus_world_cracker
+		custom_effect_tooltip = hos_world_cracker_tt
+		ai_chance = {
+			base = 10
+			modifier = { factor = 3 has_idea = hos_ethic_xenophobe }
+		}
+	}
+	option = {
+		name = hos_colossus.2.b
+		set_country_flag = hos_colossus_neutron_sweep
+		custom_effect_tooltip = hos_neutron_sweep_tt
+		ai_chance = {
+			base = 10
+			modifier = { factor = 3 has_idea = hos_ethic_militarist }
+		}
+	}
+	option = {
+		name = hos_colossus.2.c
+		set_country_flag = hos_colossus_nanobot_diffuser
+		custom_effect_tooltip = hos_nanobot_diffuser_tt
+		ai_chance = {
+			base = 10
+			modifier = { factor = 3 has_idea = hos_ethic_machine }
+		}
+	}
+}
+
+# Colossus shots. hos_colossus_fire saves the targets before firing these.
+news_event = {
+	id = hos_colossus.10
+	title = hos_colossus.10.t
+	desc = hos_colossus.10.d
+	picture = GFX_news_event_hos_world_cracker
+	major = yes
+	is_triggered_only = yes
+	option = { name = hos_colossus.10.a }
+}
+
+news_event = {
+	id = hos_colossus.11
+	title = hos_colossus.11.t
+	desc = hos_colossus.11.d
+	picture = GFX_news_event_hos_neutron_sweep
+	major = yes
+	is_triggered_only = yes
+	option = { name = hos_colossus.11.a }
+}
+
+news_event = {
+	id = hos_colossus.12
+	title = hos_colossus.12.t
+	desc = hos_colossus.12.d
+	picture = GFX_news_event_hos_nanobot_diffuser
+	major = yes
+	is_triggered_only = yes
+	option = { name = hos_colossus.12.a }
+}
+
+# A Galactic Nemesis rises
+news_event = {
+	id = hos_colossus.20
+	title = hos_colossus.20.t
+	desc = hos_colossus.20.d
+	picture = GFX_news_event_hos_nemesis
+	major = yes
+	is_triggered_only = yes
+
+	option = {
+		name = hos_colossus.20.a
+		trigger = { NOT = { has_country_flag = hos_nemesis } }
+	}
+	option = {
+		name = hos_colossus.20.b
+		trigger = { has_country_flag = hos_nemesis }
+	}
+}
+
+# The Aetherophasic Engine is being built (hos_aetherophasic_engine declares the wars)
+news_event = {
+	id = hos_colossus.21
+	title = hos_colossus.21.t
+	desc = hos_colossus.21.d
+	picture = GFX_news_event_hos_engine_start
+	major = yes
+	is_triggered_only = yes
+
+	option = {
+		name = hos_colossus.21.a
+		trigger = {
+			NOT = { has_country_flag = hos_nemesis }
+			is_major = yes
+		}
+	}
+	option = {
+		name = hos_colossus.21.b
+		trigger = {
+			NOT = { has_country_flag = hos_nemesis }
+			is_major = no
+		}
+	}
+	option = {
+		name = hos_colossus.21.c
+		trigger = { has_country_flag = hos_nemesis }
+	}
+}
+
+# The end of the cycle
+news_event = {
+	id = hos_colossus.22
+	title = hos_colossus.22.t
+	desc = hos_colossus.22.d
+	picture = GFX_news_event_hos_engine_complete
+	major = yes
+	is_triggered_only = yes
+
+	option = {
+		name = hos_colossus.22.a
+		trigger = { NOT = { has_country_flag = hos_nemesis } }
+	}
+	option = {
+		name = hos_colossus.22.b
+		trigger = { has_country_flag = hos_nemesis }
+	}
+}

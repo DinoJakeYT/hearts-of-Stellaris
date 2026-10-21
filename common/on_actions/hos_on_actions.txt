@@ -1,0 +1,43 @@
+on_actions = {
+	# on_startup has no scope, and a scripted effect needs one; any country will do.
+	on_startup = {
+		effect = {
+			random_country = {
+				hos_on_startup = yes
+			}
+		}
+	}
+
+	# ROOT is each country in turn; hos_monthly_crisis_check only acts once per month.
+	on_monthly = {
+		effect = {
+			hos_monthly_crisis_check = yes
+		}
+	}
+
+	on_monthly_PSC = {
+		effect = {
+			hos_crisis_monthly = yes
+		}
+	}
+	on_monthly_UNB = {
+		effect = {
+			hos_crisis_monthly = yes
+		}
+	}
+	on_monthly_CTG = {
+		effect = {
+			hos_crisis_monthly = yes
+		}
+	}
+
+	# ROOT is the capitulated country
+	on_capitulation = {
+		effect = {
+			if = {
+				limit = { hos_is_crisis_country = yes }
+				hos_crisis_collapse = yes
+			}
+		}
+	}
+}

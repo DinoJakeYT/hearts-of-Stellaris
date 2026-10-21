@@ -1,0 +1,44 @@
+characters = {
+	PSC_prethoryn_queen = {
+		name = PSC_prethoryn_queen
+		portraits = {
+			civilian = {
+				large = GFX_portrait_hos_prethoryn_queen
+			}
+		}
+		country_leader = {
+			ideology = despotism
+			traits = { hos_devouring_swarm }
+			expire = "2000.1.1.1"
+			id = -1
+		}
+	}
+	UNB_unbidden_warlock = {
+		name = UNB_unbidden_warlock
+		portraits = {
+			civilian = {
+				large = GFX_portrait_hos_unbidden_warlock
+			}
+		}
+		country_leader = {
+			ideology = despotism
+			traits = { hos_extradimensional_hunger }
+			expire = "2000.1.1.1"
+			id = -1
+		}
+	}
+	CTG_contingency_core = {
+		name = CTG_contingency_core
+		portraits = {
+			civilian = {
+				large = GFX_portrait_hos_contingency_core
+			}
+		}
+		country_leader = {
+			ideology = despotism
+			traits = { hos_sterilization_protocol }
+			expire = "2000.1.1.1"
+			id = -1
+		}
+	}
+}

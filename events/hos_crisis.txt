@@ -1,0 +1,168 @@
+add_namespace = hos_crisis
+
+### Warnings (hos_crisis_warning), about 75 days before the arrival
+
+news_event = {
+	id = hos_crisis.1
+	title = hos_crisis.1.t
+	desc = hos_crisis.1.d
+	picture = GFX_news_event_hos_prethoryn_warning
+	major = yes
+	is_triggered_only = yes
+	option = { name = hos_crisis.1.a }
+}
+
+news_event = {
+	id = hos_crisis.2
+	title = hos_crisis.2.t
+	desc = hos_crisis.2.d
+	picture = GFX_news_event_hos_unbidden_warning
+	major = yes
+	is_triggered_only = yes
+	option = { name = hos_crisis.2.a }
+}
+
+news_event = {
+	id = hos_crisis.3
+	title = hos_crisis.3.t
+	desc = hos_crisis.3.d
+	picture = GFX_news_event_hos_contingency_warning
+	major = yes
+	is_triggered_only = yes
+	option = { name = hos_crisis.3.a }
+}
+
+### Arrivals (hos_spawn_*), fired in the crisis country's scope
+
+news_event = {
+	id = hos_crisis.11
+	title = hos_crisis.11.t
+	desc = hos_crisis.11.d
+	picture = GFX_news_event_hos_prethoryn_arrival
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = hos_crisis.11.a
+		trigger = { NOT = { tag = PSC } }
+		custom_effect_tooltip = hos_crisis_defender_tt
+	}
+	option = {
+		name = hos_crisis.11.b
+		trigger = { tag = PSC }
+	}
+}
+
+news_event = {
+	id = hos_crisis.12
+	title = hos_crisis.12.t
+	desc = hos_crisis.12.d
+	picture = GFX_news_event_hos_unbidden_arrival
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = hos_crisis.12.a
+		trigger = { NOT = { tag = UNB } }
+		custom_effect_tooltip = hos_crisis_defender_tt
+	}
+	option = {
+		name = hos_crisis.12.b
+		trigger = { tag = UNB }
+	}
+}
+
+news_event = {
+	id = hos_crisis.13
+	title = hos_crisis.13.t
+	desc = hos_crisis.13.d
+	picture = GFX_news_event_hos_contingency_arrival
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = hos_crisis.13.a
+		trigger = { NOT = { tag = CTG } }
+		custom_effect_tooltip = hos_crisis_defender_tt
+	}
+	option = {
+		name = hos_crisis.13.b
+		trigger = { tag = CTG }
+	}
+}
+
+# The crisis declares war on the world. ROOT is the crisis.
+country_event = {
+	id = hos_crisis.20
+	hidden = yes
+	is_triggered_only = yes
+
+	immediate = {
+		every_other_country = {
+			limit = {
+				NOT = { hos_is_crisis_country = yes }
+				NOT = { has_war_with = ROOT }
+			}
+			set_country_flag = hos_fought_crisis
+			ROOT = { declare_war_on = { target = PREV type = annex_everything } }
+		}
+	}
+
+	option = { name = hos_crisis.20.a }
+}
+
+# The Contingency subverts a machine nation's robots
+country_event = {
+	id = hos_crisis.21
+	title = hos_crisis.21.t
+	desc = hos_crisis.21.d
+	picture = GFX_report_event_hos_synth_betrayal
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			random_owned_controlled_state = {
+				limit = {
+					is_capital = no
+					NOT = { has_state_flag = hos_crisis_state }
+				}
+				set_state_flag = hos_crisis_state
+				CTG = { transfer_state = PREV }
+			}
+		}
+	}
+
+	option = {
+		name = hos_crisis.21.a
+		add_timed_idea = { idea = hos_synth_betrayal days = 180 }
+	}
+}
+
+### Turning points and the end
+
+news_event = {
+	id = hos_crisis.30
+	title = hos_crisis.30.t
+	desc = hos_crisis.30.d
+	picture = GFX_news_event_hos_portal_collapse
+	major = yes
+	is_triggered_only = yes
+	option = { name = hos_crisis.30.a }
+}
+
+news_event = {
+	id = hos_crisis.31
+	title = hos_crisis.31.t
+	desc = hos_crisis.31.d
+	picture = GFX_news_event_hos_hubs_destroyed
+	major = yes
+	is_triggered_only = yes
+	option = { name = hos_crisis.31.a }
+}
+
+news_event = {
+	id = hos_crisis.40
+	title = hos_crisis.40.t
+	desc = hos_crisis.40.d
+	picture = GFX_news_event_hos_crisis_defeated
+	major = yes
+	is_triggered_only = yes
+	option = { name = hos_crisis.40.a }
+}

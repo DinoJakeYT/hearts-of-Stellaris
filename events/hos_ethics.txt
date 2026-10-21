@@ -1,0 +1,87 @@
+add_namespace = hos_ethics
+
+# The Stellaris Codex falls from the sky (players, on game start and from hos_shift_ethics)
+country_event = {
+	id = hos_ethics.1
+	title = hos_ethics.1.t
+	desc = hos_ethics.1.d
+	picture = GFX_report_event_hos_codex
+
+	is_triggered_only = yes
+
+	option = {
+		name = hos_ethics.1.a
+		country_event = { id = hos_ethics.2 }
+	}
+	option = {
+		name = hos_ethics.1.b
+		country_event = { id = hos_ethics.3 }
+	}
+	option = {
+		name = hos_ethics.1.c
+		ai_chance = { factor = 0 }
+		add_political_power = 25
+	}
+}
+
+# Individualist ethics
+country_event = {
+	id = hos_ethics.2
+	title = hos_ethics.2.t
+	desc = hos_ethics.2.d
+	picture = GFX_report_event_hos_galactic_community
+
+	is_triggered_only = yes
+
+	option = {
+		name = hos_ethics.2.a
+		hos_clear_ethics = yes
+		add_ideas = hos_ethic_militarist
+	}
+	option = {
+		name = hos_ethics.2.b
+		hos_clear_ethics = yes
+		add_ideas = hos_ethic_pacifist
+	}
+	option = {
+		name = hos_ethics.2.c
+		hos_clear_ethics = yes
+		add_ideas = hos_ethic_materialist
+	}
+	option = {
+		name = hos_ethics.2.e
+		hos_clear_ethics = yes
+		add_ideas = hos_ethic_spiritualist
+	}
+	option = {
+		name = hos_ethics.2.f
+		hos_clear_ethics = yes
+		add_ideas = hos_ethic_xenophobe
+	}
+	option = {
+		name = hos_ethics.2.g
+		hos_clear_ethics = yes
+		add_ideas = hos_ethic_xenophile
+	}
+}
+
+# Gestalt consciousness
+country_event = {
+	id = hos_ethics.3
+	title = hos_ethics.3.t
+	desc = hos_ethics.3.d
+	picture = GFX_report_event_hos_gestalt
+
+	is_triggered_only = yes
+
+	option = {
+		name = hos_ethics.3.a
+		hos_clear_ethics = yes
+		add_ideas = hos_ethic_machine
+	}
+	option = {
+		name = hos_ethics.3.b
+		hos_clear_ethics = yes
+		add_ideas = hos_ethic_hive
+	}
+}

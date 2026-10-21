@@ -1,0 +1,114 @@
+hos_crisis_type = {
+	name = "RULE_HOS_CRISIS_TYPE"
+	group = "RULE_GROUP_HOS"
+	default = {
+		name = RANDOM
+		text = RULE_HOS_CRISIS_RANDOM
+		desc = RULE_HOS_CRISIS_RANDOM_DESC
+	}
+	option = {
+		name = PRETHORYN
+		text = RULE_HOS_CRISIS_PRETHORYN
+		desc = RULE_HOS_CRISIS_PRETHORYN_DESC
+	}
+	option = {
+		name = UNBIDDEN
+		text = RULE_HOS_CRISIS_UNBIDDEN
+		desc = RULE_HOS_CRISIS_UNBIDDEN_DESC
+	}
+	option = {
+		name = CONTINGENCY
+		text = RULE_HOS_CRISIS_CONTINGENCY
+		desc = RULE_HOS_CRISIS_CONTINGENCY_DESC
+	}
+	option = {
+		name = NONE
+		text = RULE_HOS_CRISIS_NONE
+		desc = RULE_HOS_CRISIS_NONE_DESC
+	}
+}
+
+hos_crisis_year = {
+	name = "RULE_HOS_CRISIS_YEAR"
+	group = "RULE_GROUP_HOS"
+	default = {
+		name = Y1942
+		text = RULE_HOS_YEAR_1942
+		desc = RULE_HOS_YEAR_1942_DESC
+	}
+	option = {
+		name = Y1938
+		text = RULE_HOS_YEAR_1938
+		desc = RULE_HOS_YEAR_1938_DESC
+	}
+	option = {
+		name = Y1940
+		text = RULE_HOS_YEAR_1940
+		desc = RULE_HOS_YEAR_1940_DESC
+	}
+	option = {
+		name = Y1945
+		text = RULE_HOS_YEAR_1945
+		desc = RULE_HOS_YEAR_1945_DESC
+	}
+	option = {
+		name = Y1948
+		text = RULE_HOS_YEAR_1948
+		desc = RULE_HOS_YEAR_1948_DESC
+	}
+}
+
+hos_crisis_strength = {
+	name = "RULE_HOS_CRISIS_STRENGTH"
+	group = "RULE_GROUP_HOS"
+	default = {
+		name = X1
+		text = RULE_HOS_STRENGTH_X1
+		desc = RULE_HOS_STRENGTH_X1_DESC
+	}
+	option = {
+		name = X05
+		text = RULE_HOS_STRENGTH_X05
+		desc = RULE_HOS_STRENGTH_X05_DESC
+	}
+	option = {
+		name = X2
+		text = RULE_HOS_STRENGTH_X2
+		desc = RULE_HOS_STRENGTH_X2_DESC
+	}
+	option = {
+		name = X5
+		text = RULE_HOS_STRENGTH_X5
+		desc = RULE_HOS_STRENGTH_X5_DESC
+	}
+	option = {
+		name = X10
+		text = RULE_HOS_STRENGTH_X10
+		desc = RULE_HOS_STRENGTH_X10_DESC
+	}
+	option = {
+		name = X25
+		text = RULE_HOS_STRENGTH_X25
+		desc = RULE_HOS_STRENGTH_X25_DESC
+	}
+}
+
+hos_ai_ethics = {
+	name = "RULE_HOS_AI_ETHICS"
+	group = "RULE_GROUP_HOS"
+	default = {
+		name = ALL
+		text = RULE_HOS_AI_ETHICS_ALL
+		desc = RULE_HOS_AI_ETHICS_ALL_DESC
+	}
+	option = {
+		name = MAJORS
+		text = RULE_HOS_AI_ETHICS_MAJORS
+		desc = RULE_HOS_AI_ETHICS_MAJORS_DESC
+	}
+	option = {
+		name = NONE
+		text = RULE_HOS_AI_ETHICS_NONE
+		desc = RULE_HOS_AI_ETHICS_NONE_DESC
+	}
+}

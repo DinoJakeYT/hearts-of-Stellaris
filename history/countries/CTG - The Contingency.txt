@@ -1,0 +1,30 @@
+# The Contingency has no states until the endgame crisis spawns it (hos_spawn_prethoryn/unbidden/contingency
+# in common/scripted_effects/hos_crisis_effects.txt), which also sets its politics and promotes this leader.
+capital = 1
+
+set_research_slots = 2
+
+set_technology = {
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	infantry_weapons2 = 1
+	tech_support = 1
+	tech_engineers = 1
+	tech_recon = 1
+	gw_artillery = 1
+	interwar_artillery = 1
+}
+
+set_politics = {
+	ruling_party = neutrality
+	elections_allowed = no
+}
+
+set_popularities = {
+	democratic = 0
+	fascism = 0
+	communism = 0
+	neutrality = 100
+}
+
+recruit_character = CTG_contingency_core
